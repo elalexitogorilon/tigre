@@ -1,0 +1,1699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PrompModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cancelaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VentaId" Type="int" />
+          <Property Name="CanceladaPorID" Type="int" />
+          <Property Name="RazonCancelacionID" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="ClienteEntregas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteID" Type="int" />
+          <Property Name="DireccionID" Type="int" />
+          <Property Name="TelefonoID" Type="int" />
+          <Property Name="EmailID" Type="int" />
+          <Property Name="ViaEntregaID" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" />
+          <Property Name="DireccionID" Type="int" />
+          <Property Name="TelefonosID" Type="int" />
+          <Property Name="ECorreosID" Type="int" />
+          <Property Name="CURP" Type="varchar" MaxLength="20" />
+          <Property Name="RFC" Type="varchar" MaxLength="20" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="CuentaVendedors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendedorId" Type="int" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="100" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="126" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Direccions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Direccionfisica" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CodigoPostal" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ciudad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Emails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoEmailPrincipalid" Type="int" />
+          <Property Name="TipoAlternoEmailid" Type="int" />
+          <Property Name="EmailPrincipal" Type="varchar" MaxLength="255" />
+          <Property Name="AlternoEmail" Type="varchar" MaxLength="255" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="ExistenciaProductoes">
+          <Key>
+            <PropertyRef Name="productoID" />
+          </Key>
+          <Property Name="productoID" Type="int" Nullable="false" />
+          <Property Name="MaximoProducto" Type="int" />
+          <Property Name="Existensia" Type="int" />
+          <Property Name="MinimoProducto" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Fotoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FotoURL" Type="varchar" MaxLength="500" />
+          <Property Name="Contents" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Marcas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreMarca" Type="nvarchar(max)" />
+          <Property Name="SubMarca" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="PreguntaSeguridads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pregunta" Type="varchar" MaxLength="100" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Productoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProvedorID" Type="int" />
+          <Property Name="FotoID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProductDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Costo" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="PrecioDescuento" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Lista" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="30" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+          <Property Name="MarcaId" Type="int" Nullable="false" />
+          <Property Name="VehiculoId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProveedorEnvios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProveedorID" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Proveedors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="DireccionID" Type="int" Nullable="false" />
+          <Property Name="EmailID" Type="int" />
+          <Property Name="TelefonoID" Type="int" Nullable="false" />
+          <Property Name="TipoProveedorid" Type="int" Nullable="false" />
+          <Property Name="ProveedorName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProveedorDetails" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+          <Property Name="Compañia" Type="varchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="RazonCancelacions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CancelacionDetalles" Type="int" />
+          <Property Name="ObservacionCancelacion" Type="varchar" MaxLength="2000" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="RespuestaPreguntaSeguridads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Respuesta" Type="varchar" MaxLength="100" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TarjetaCreditoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" />
+          <Property Name="DireccionID" Type="int" />
+          <Property Name="NombreTarjeta" Type="varchar" MaxLength="500" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Numero" Type="varchar" MaxLength="500" />
+          <Property Name="NumeroDeSuguridad" Type="varchar" MaxLength="500" />
+          <Property Name="FechaCaducidad" Type="datetime" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Telefonos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TelefonoPrimario" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExtensionPrimario" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TelefonoAlternativo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ExtensionAlternativo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cellular" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fax" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoDePagoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="500" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoDeProveedors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Detalles" Type="varchar" MaxLength="250" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoDeVentas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="IncluyeImpuesto" Type="bit" />
+          <Property Name="Impuesto" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoEmails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DetallesEmail" Type="varchar" MaxLength="255" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="UsuarioRecobrarCuentas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CuentaUsuarioid" Type="int" />
+          <Property Name="PreguntaSeguridadID" Type="int" />
+          <Property Name="RespuestaPreguntaSeguridadId" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Vehiculoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreVehiculo" Type="nvarchar(max)" />
+          <Property Name="SubVehiculo" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Vendedors">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="DireccionID" Type="int" Nullable="false" />
+          <Property Name="TelefonosID" Type="int" Nullable="false" />
+          <Property Name="ECorreosID" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="VentaEnvios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProveedorEnviosID" Type="int" />
+          <Property Name="ClienteEntregaID" Type="int" />
+          <Property Name="Costo" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="IVA" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="TOTAL" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="VentaProductos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VentaId" Type="int" />
+          <Property Name="ProductoID" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="PrecioVenta" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="IncluirEnVenta" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteId" Type="int" />
+          <Property Name="VendedorID" Type="int" />
+          <Property Name="TipoVentaID" Type="int" />
+          <Property Name="TarjetaID" Type="int" />
+          <Property Name="TipoDePagoID" Type="int" />
+          <Property Name="VentaEnvioID" Type="int" />
+          <Property Name="Descuento" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="SubTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Impuesto" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="Total" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="ObservacionesVenta" Type="varchar" MaxLength="3000" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
+        <Association Name="FK_CuentaUsuarioVendedor">
+          <End Role="Vendedors" Type="Self.Vendedors" Multiplicity="1" />
+          <End Role="CuentaVendedors" Type="Self.CuentaVendedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CuentaVendedors">
+              <PropertyRef Name="VendedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DireccionVendedor">
+          <End Role="Direccions" Type="Self.Direccions" Multiplicity="1" />
+          <End Role="Vendedors" Type="Self.Vendedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="DireccionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailVendedor">
+          <End Role="Emails" Type="Self.Emails" Multiplicity="0..1" />
+          <End Role="Vendedors" Type="Self.Vendedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="ECorreosID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FotoProducto">
+          <End Role="Fotoes" Type="Self.Fotoes" Multiplicity="0..1" />
+          <End Role="Productoes" Type="Self.Productoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fotoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="FotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarcaProducto">
+          <End Role="Marcas" Type="Self.Marcas" Multiplicity="1" />
+          <End Role="Productoes" Type="Self.Productoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marcas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="MarcaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonProveedor">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Proveedors" Type="Self.Proveedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proveedors">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonVendedor">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Vendedors" Type="Self.Vendedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoExistenciaProducto">
+          <End Role="Productoes" Type="Self.Productoes" Multiplicity="1" />
+          <End Role="ExistenciaProductoes" Type="Self.ExistenciaProductoes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Productoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExistenciaProductoes">
+              <PropertyRef Name="productoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorProducto">
+          <End Role="Proveedors" Type="Self.Proveedors" Multiplicity="0..1" />
+          <End Role="Productoes" Type="Self.Productoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="ProvedorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TelefonoVendedor">
+          <End Role="Telefonos" Type="Self.Telefonos" Multiplicity="1" />
+          <End Role="Vendedors" Type="Self.Vendedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="TelefonosID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoDeProveedorProveedor">
+          <End Role="TipoDeProveedors" Type="Self.TipoDeProveedors" Multiplicity="1" />
+          <End Role="Proveedors" Type="Self.Proveedors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDeProveedors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proveedors">
+              <PropertyRef Name="TipoProveedorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoProducto">
+          <End Role="Vehiculoes" Type="Self.Vehiculoes" Multiplicity="1" />
+          <End Role="Productoes" Type="Self.Productoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="VehiculoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrompModelStoreContainer">
+          <EntitySet Name="Cancelaciones" EntityType="Self.Cancelaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClienteEntregas" EntityType="Self.ClienteEntregas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentaVendedors" EntityType="Self.CuentaVendedors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Direccions" EntityType="Self.Direccions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emails" EntityType="Self.Emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExistenciaProductoes" EntityType="Self.ExistenciaProductoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fotoes" EntityType="Self.Fotoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreguntaSeguridads" EntityType="Self.PreguntaSeguridads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productoes" EntityType="Self.Productoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProveedorEnvios" EntityType="Self.ProveedorEnvios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedors" EntityType="Self.Proveedors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RazonCancelacions" EntityType="Self.RazonCancelacions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RespuestaPreguntaSeguridads" EntityType="Self.RespuestaPreguntaSeguridads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TarjetaCreditoes" EntityType="Self.TarjetaCreditoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefonos" EntityType="Self.Telefonos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDePagoes" EntityType="Self.TipoDePagoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDeProveedors" EntityType="Self.TipoDeProveedors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDeVentas" EntityType="Self.TipoDeVentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEmails" EntityType="Self.TipoEmails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioRecobrarCuentas" EntityType="Self.UsuarioRecobrarCuentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculoes" EntityType="Self.Vehiculoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendedors" EntityType="Self.Vendedors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VentaEnvios" EntityType="Self.VentaEnvios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VentaProductos" EntityType="Self.VentaProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CuentaUsuarioVendedor" Association="Self.FK_CuentaUsuarioVendedor">
+            <End Role="Vendedors" EntitySet="Vendedors" />
+            <End Role="CuentaVendedors" EntitySet="CuentaVendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DireccionVendedor" Association="Self.FK_DireccionVendedor">
+            <End Role="Direccions" EntitySet="Direccions" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailVendedor" Association="Self.FK_EmailVendedor">
+            <End Role="Emails" EntitySet="Emails" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FotoProducto" Association="Self.FK_FotoProducto">
+            <End Role="Fotoes" EntitySet="Fotoes" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarcaProducto" Association="Self.FK_MarcaProducto">
+            <End Role="Marcas" EntitySet="Marcas" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonProveedor" Association="Self.FK_PersonProveedor">
+            <End Role="People" EntitySet="People" />
+            <End Role="Proveedors" EntitySet="Proveedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonVendedor" Association="Self.FK_PersonVendedor">
+            <End Role="People" EntitySet="People" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoExistenciaProducto" Association="Self.FK_ProductoExistenciaProducto">
+            <End Role="Productoes" EntitySet="Productoes" />
+            <End Role="ExistenciaProductoes" EntitySet="ExistenciaProductoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorProducto" Association="Self.FK_ProveedorProducto">
+            <End Role="Proveedors" EntitySet="Proveedors" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TelefonoVendedor" Association="Self.FK_TelefonoVendedor">
+            <End Role="Telefonos" EntitySet="Telefonos" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoDeProveedorProveedor" Association="Self.FK_TipoDeProveedorProveedor">
+            <End Role="TipoDeProveedors" EntitySet="TipoDeProveedors" />
+            <End Role="Proveedors" EntitySet="Proveedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoProducto" Association="Self.FK_VehiculoProducto">
+            <End Role="Vehiculoes" EntitySet="Vehiculoes" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PrompModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cancelacione">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VentaId" Type="Int32" />
+          <Property Name="CanceladaPorID" Type="Int32" />
+          <Property Name="RazonCancelacionID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ClienteEntrega">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteID" Type="Int32" />
+          <Property Name="DireccionID" Type="Int32" />
+          <Property Name="TelefonoID" Type="Int32" />
+          <Property Name="EmailID" Type="Int32" />
+          <Property Name="ViaEntregaID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" />
+          <Property Name="DireccionID" Type="Int32" />
+          <Property Name="TelefonosID" Type="Int32" />
+          <Property Name="ECorreosID" Type="Int32" />
+          <Property Name="CURP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CuentaVendedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendedorId" Type="Int32" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="126" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Vendedor" Relationship="Self.FK_CuentaUsuarioVendedor" FromRole="CuentaVendedors" ToRole="Vendedors" />
+        </EntityType>
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Direccionfisica" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Vendedors" Relationship="Self.FK_DireccionVendedor" FromRole="Direccions" ToRole="Vendedors" />
+        </EntityType>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoEmailPrincipalid" Type="Int32" />
+          <Property Name="TipoAlternoEmailid" Type="Int32" />
+          <Property Name="EmailPrincipal" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AlternoEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Vendedors" Relationship="Self.FK_EmailVendedor" FromRole="Emails" ToRole="Vendedors" />
+        </EntityType>
+        <EntityType Name="ExistenciaProducto">
+          <Key>
+            <PropertyRef Name="productoID" />
+          </Key>
+          <Property Name="productoID" Type="Int32" Nullable="false" />
+          <Property Name="MaximoProducto" Type="Int32" />
+          <Property Name="Existensia" Type="Int32" />
+          <Property Name="MinimoProducto" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK_ProductoExistenciaProducto" FromRole="ExistenciaProductoes" ToRole="Productoes" />
+        </EntityType>
+        <EntityType Name="Foto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FotoURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Contents" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Productoes" Relationship="Self.FK_FotoProducto" FromRole="Fotoes" ToRole="Productoes" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMarca" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubMarca" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Productoes" Relationship="Self.FK_MarcaProducto" FromRole="Marcas" ToRole="Productoes" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Proveedors" Relationship="Self.FK_PersonProveedor" FromRole="People" ToRole="Proveedors" />
+          <NavigationProperty Name="Vendedors" Relationship="Self.FK_PersonVendedor" FromRole="People" ToRole="Vendedors" />
+        </EntityType>
+        <EntityType Name="PreguntaSeguridad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pregunta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProvedorID" Type="Int32" />
+          <Property Name="FotoID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Costo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PrecioDescuento" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Lista" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ubicacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <Property Name="MarcaId" Type="Int32" Nullable="false" />
+          <Property Name="VehiculoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExistenciaProducto" Relationship="Self.FK_ProductoExistenciaProducto" FromRole="Productoes" ToRole="ExistenciaProductoes" />
+          <NavigationProperty Name="Foto" Relationship="Self.FK_FotoProducto" FromRole="Productoes" ToRole="Fotoes" />
+          <NavigationProperty Name="Marca" Relationship="Self.FK_MarcaProducto" FromRole="Productoes" ToRole="Marcas" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.FK_ProveedorProducto" FromRole="Productoes" ToRole="Proveedors" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_VehiculoProducto" FromRole="Productoes" ToRole="Vehiculoes" />
+        </EntityType>
+        <EntityType Name="ProveedorEnvio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProveedorID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="DireccionID" Type="Int32" Nullable="false" />
+          <Property Name="EmailID" Type="Int32" />
+          <Property Name="TelefonoID" Type="Int32" Nullable="false" />
+          <Property Name="TipoProveedorid" Type="Int32" Nullable="false" />
+          <Property Name="ProveedorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProveedorDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <Property Name="Compañia" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonProveedor" FromRole="Proveedors" ToRole="People" />
+          <NavigationProperty Name="Productoes" Relationship="Self.FK_ProveedorProducto" FromRole="Proveedors" ToRole="Productoes" />
+          <NavigationProperty Name="TipoDeProveedor" Relationship="Self.FK_TipoDeProveedorProveedor" FromRole="Proveedors" ToRole="TipoDeProveedors" />
+        </EntityType>
+        <EntityType Name="RazonCancelacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CancelacionDetalles" Type="Int32" />
+          <Property Name="ObservacionCancelacion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RespuestaPreguntaSeguridad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Respuesta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TarjetaCredito">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" />
+          <Property Name="DireccionID" Type="Int32" />
+          <Property Name="NombreTarjeta" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroDeSuguridad" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCaducidad" Type="DateTime" Precision="3" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Telefono">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TelefonoPrimario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtensionPrimario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonoAlternativo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExtensionAlternativo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cellular" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Vendedors" Relationship="Self.FK_TelefonoVendedor" FromRole="Telefonos" ToRole="Vendedors" />
+        </EntityType>
+        <EntityType Name="TipoDePago">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TipoDeProveedor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Detalles" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Proveedors" Relationship="Self.FK_TipoDeProveedorProveedor" FromRole="TipoDeProveedors" ToRole="Proveedors" />
+        </EntityType>
+        <EntityType Name="TipoDeVenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncluyeImpuesto" Type="Boolean" />
+          <Property Name="Impuesto" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TipoEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DetallesEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UsuarioRecobrarCuenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CuentaUsuarioid" Type="Int32" />
+          <Property Name="PreguntaSeguridadID" Type="Int32" />
+          <Property Name="RespuestaPreguntaSeguridadId" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreVehiculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubVehiculo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Productoes" Relationship="Self.FK_VehiculoProducto" FromRole="Vehiculoes" ToRole="Productoes" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="DireccionID" Type="Int32" Nullable="false" />
+          <Property Name="TelefonosID" Type="Int32" Nullable="false" />
+          <Property Name="ECorreosID" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="CuentaVendedors" Relationship="Self.FK_CuentaUsuarioVendedor" FromRole="Vendedors" ToRole="CuentaVendedors" />
+          <NavigationProperty Name="Direccion" Relationship="Self.FK_DireccionVendedor" FromRole="Vendedors" ToRole="Direccions" />
+          <NavigationProperty Name="Email" Relationship="Self.FK_EmailVendedor" FromRole="Vendedors" ToRole="Emails" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonVendedor" FromRole="Vendedors" ToRole="People" />
+          <NavigationProperty Name="Telefono" Relationship="Self.FK_TelefonoVendedor" FromRole="Vendedors" ToRole="Telefonos" />
+        </EntityType>
+        <EntityType Name="VentaEnvio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProveedorEnviosID" Type="Int32" />
+          <Property Name="ClienteEntregaID" Type="Int32" />
+          <Property Name="Costo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IVA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TOTAL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VentaProducto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VentaId" Type="Int32" />
+          <Property Name="ProductoID" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="PrecioVenta" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IncluirEnVenta" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteId" Type="Int32" />
+          <Property Name="VendedorID" Type="Int32" />
+          <Property Name="TipoVentaID" Type="Int32" />
+          <Property Name="TarjetaID" Type="Int32" />
+          <Property Name="TipoDePagoID" Type="Int32" />
+          <Property Name="VentaEnvioID" Type="Int32" />
+          <Property Name="Descuento" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SubTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Impuesto" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ObservacionesVenta" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_CuentaUsuarioVendedor">
+          <End Role="Vendedors" Type="Self.Vendedor" Multiplicity="1" />
+          <End Role="CuentaVendedors" Type="Self.CuentaVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedors">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CuentaVendedors">
+              <PropertyRef Name="VendedorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DireccionVendedor">
+          <End Role="Direccions" Type="Self.Direccion" Multiplicity="1" />
+          <End Role="Vendedors" Type="Self.Vendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="DireccionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailVendedor">
+          <End Role="Emails" Type="Self.Email" Multiplicity="0..1" />
+          <End Role="Vendedors" Type="Self.Vendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="ECorreosID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductoExistenciaProducto">
+          <End Role="Productoes" Type="Self.Producto" Multiplicity="1" />
+          <End Role="ExistenciaProductoes" Type="Self.ExistenciaProducto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Productoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExistenciaProductoes">
+              <PropertyRef Name="productoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FotoProducto">
+          <End Role="Fotoes" Type="Self.Foto" Multiplicity="0..1" />
+          <End Role="Productoes" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fotoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="FotoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarcaProducto">
+          <End Role="Marcas" Type="Self.Marca" Multiplicity="1" />
+          <End Role="Productoes" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marcas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="MarcaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonProveedor">
+          <End Role="People" Type="Self.Person" Multiplicity="1" />
+          <End Role="Proveedors" Type="Self.Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Proveedors">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonVendedor">
+          <End Role="People" Type="Self.Person" Multiplicity="1" />
+          <End Role="Vendedors" Type="Self.Vendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedorProducto">
+          <End Role="Proveedors" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="Productoes" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="ProvedorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoProducto">
+          <End Role="Vehiculoes" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Productoes" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculoes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productoes">
+              <PropertyRef Name="VehiculoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TipoDeProveedorProveedor">
+          <End Role="TipoDeProveedors" Type="Self.TipoDeProveedor" Multiplicity="1" />
+          <End Role="Proveedors" Type="Self.Proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDeProveedors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Proveedors">
+              <PropertyRef Name="TipoProveedorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TelefonoVendedor">
+          <End Role="Telefonos" Type="Self.Telefono" Multiplicity="1" />
+          <End Role="Vendedors" Type="Self.Vendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefonos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vendedors">
+              <PropertyRef Name="TelefonosID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PrompEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cancelaciones" EntityType="Self.Cancelacione" />
+          <EntitySet Name="ClienteEntregas" EntityType="Self.ClienteEntrega" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="CuentaVendedors" EntityType="Self.CuentaVendedor" />
+          <EntitySet Name="Direccions" EntityType="Self.Direccion" />
+          <EntitySet Name="Emails" EntityType="Self.Email" />
+          <EntitySet Name="ExistenciaProductoes" EntityType="Self.ExistenciaProducto" />
+          <EntitySet Name="Fotoes" EntityType="Self.Foto" />
+          <EntitySet Name="Marcas" EntityType="Self.Marca" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="PreguntaSeguridads" EntityType="Self.PreguntaSeguridad" />
+          <EntitySet Name="Productoes" EntityType="Self.Producto" />
+          <EntitySet Name="ProveedorEnvios" EntityType="Self.ProveedorEnvio" />
+          <EntitySet Name="Proveedors" EntityType="Self.Proveedor" />
+          <EntitySet Name="RazonCancelacions" EntityType="Self.RazonCancelacion" />
+          <EntitySet Name="RespuestaPreguntaSeguridads" EntityType="Self.RespuestaPreguntaSeguridad" />
+          <EntitySet Name="TarjetaCreditoes" EntityType="Self.TarjetaCredito" />
+          <EntitySet Name="Telefonos" EntityType="Self.Telefono" />
+          <EntitySet Name="TipoDePagoes" EntityType="Self.TipoDePago" />
+          <EntitySet Name="TipoDeProveedors" EntityType="Self.TipoDeProveedor" />
+          <EntitySet Name="TipoDeVentas" EntityType="Self.TipoDeVenta" />
+          <EntitySet Name="TipoEmails" EntityType="Self.TipoEmail" />
+          <EntitySet Name="UsuarioRecobrarCuentas" EntityType="Self.UsuarioRecobrarCuenta" />
+          <EntitySet Name="Vehiculoes" EntityType="Self.Vehiculo" />
+          <EntitySet Name="Vendedors" EntityType="Self.Vendedor" />
+          <EntitySet Name="VentaEnvios" EntityType="Self.VentaEnvio" />
+          <EntitySet Name="VentaProductos" EntityType="Self.VentaProducto" />
+          <EntitySet Name="Ventas" EntityType="Self.Venta" />
+          <AssociationSet Name="FK_CuentaUsuarioVendedor" Association="Self.FK_CuentaUsuarioVendedor">
+            <End Role="Vendedors" EntitySet="Vendedors" />
+            <End Role="CuentaVendedors" EntitySet="CuentaVendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DireccionVendedor" Association="Self.FK_DireccionVendedor">
+            <End Role="Direccions" EntitySet="Direccions" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailVendedor" Association="Self.FK_EmailVendedor">
+            <End Role="Emails" EntitySet="Emails" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductoExistenciaProducto" Association="Self.FK_ProductoExistenciaProducto">
+            <End Role="Productoes" EntitySet="Productoes" />
+            <End Role="ExistenciaProductoes" EntitySet="ExistenciaProductoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FotoProducto" Association="Self.FK_FotoProducto">
+            <End Role="Fotoes" EntitySet="Fotoes" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarcaProducto" Association="Self.FK_MarcaProducto">
+            <End Role="Marcas" EntitySet="Marcas" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonProveedor" Association="Self.FK_PersonProveedor">
+            <End Role="People" EntitySet="People" />
+            <End Role="Proveedors" EntitySet="Proveedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonVendedor" Association="Self.FK_PersonVendedor">
+            <End Role="People" EntitySet="People" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedorProducto" Association="Self.FK_ProveedorProducto">
+            <End Role="Proveedors" EntitySet="Proveedors" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoProducto" Association="Self.FK_VehiculoProducto">
+            <End Role="Vehiculoes" EntitySet="Vehiculoes" />
+            <End Role="Productoes" EntitySet="Productoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TipoDeProveedorProveedor" Association="Self.FK_TipoDeProveedorProveedor">
+            <End Role="TipoDeProveedors" EntitySet="TipoDeProveedors" />
+            <End Role="Proveedors" EntitySet="Proveedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TelefonoVendedor" Association="Self.FK_TelefonoVendedor">
+            <End Role="Telefonos" EntitySet="Telefonos" />
+            <End Role="Vendedors" EntitySet="Vendedors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PrompModelStoreContainer" CdmEntityContainer="PrompEntities">
+          <EntitySetMapping Name="Cancelaciones">
+            <EntityTypeMapping TypeName="PrompModel.Cancelacione">
+              <MappingFragment StoreEntitySet="Cancelaciones">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+                <ScalarProperty Name="CanceladaPorID" ColumnName="CanceladaPorID" />
+                <ScalarProperty Name="RazonCancelacionID" ColumnName="RazonCancelacionID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClienteEntregas">
+            <EntityTypeMapping TypeName="PrompModel.ClienteEntrega">
+              <MappingFragment StoreEntitySet="ClienteEntregas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+                <ScalarProperty Name="DireccionID" ColumnName="DireccionID" />
+                <ScalarProperty Name="TelefonoID" ColumnName="TelefonoID" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="ViaEntregaID" ColumnName="ViaEntregaID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="PrompModel.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="DireccionID" ColumnName="DireccionID" />
+                <ScalarProperty Name="TelefonosID" ColumnName="TelefonosID" />
+                <ScalarProperty Name="ECorreosID" ColumnName="ECorreosID" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentaVendedors">
+            <EntityTypeMapping TypeName="PrompModel.CuentaVendedor">
+              <MappingFragment StoreEntitySet="CuentaVendedors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VendedorId" ColumnName="VendedorId" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direccions">
+            <EntityTypeMapping TypeName="PrompModel.Direccion">
+              <MappingFragment StoreEntitySet="Direccions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Direccionfisica" ColumnName="Direccionfisica" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emails">
+            <EntityTypeMapping TypeName="PrompModel.Email">
+              <MappingFragment StoreEntitySet="Emails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TipoEmailPrincipalid" ColumnName="TipoEmailPrincipalid" />
+                <ScalarProperty Name="TipoAlternoEmailid" ColumnName="TipoAlternoEmailid" />
+                <ScalarProperty Name="EmailPrincipal" ColumnName="EmailPrincipal" />
+                <ScalarProperty Name="AlternoEmail" ColumnName="AlternoEmail" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExistenciaProductoes">
+            <EntityTypeMapping TypeName="PrompModel.ExistenciaProducto">
+              <MappingFragment StoreEntitySet="ExistenciaProductoes">
+                <ScalarProperty Name="productoID" ColumnName="productoID" />
+                <ScalarProperty Name="MaximoProducto" ColumnName="MaximoProducto" />
+                <ScalarProperty Name="Existensia" ColumnName="Existensia" />
+                <ScalarProperty Name="MinimoProducto" ColumnName="MinimoProducto" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fotoes">
+            <EntityTypeMapping TypeName="PrompModel.Foto">
+              <MappingFragment StoreEntitySet="Fotoes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FotoURL" ColumnName="FotoURL" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marcas">
+            <EntityTypeMapping TypeName="PrompModel.Marca">
+              <MappingFragment StoreEntitySet="Marcas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NombreMarca" ColumnName="NombreMarca" />
+                <ScalarProperty Name="SubMarca" ColumnName="SubMarca" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="PrompModel.Person">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreguntaSeguridads">
+            <EntityTypeMapping TypeName="PrompModel.PreguntaSeguridad">
+              <MappingFragment StoreEntitySet="PreguntaSeguridads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productoes">
+            <EntityTypeMapping TypeName="PrompModel.Producto">
+              <MappingFragment StoreEntitySet="Productoes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProvedorID" ColumnName="ProvedorID" />
+                <ScalarProperty Name="FotoID" ColumnName="FotoID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="PrecioDescuento" ColumnName="PrecioDescuento" />
+                <ScalarProperty Name="Lista" ColumnName="Lista" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="MarcaId" ColumnName="MarcaId" />
+                <ScalarProperty Name="VehiculoId" ColumnName="VehiculoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProveedorEnvios">
+            <EntityTypeMapping TypeName="PrompModel.ProveedorEnvio">
+              <MappingFragment StoreEntitySet="ProveedorEnvios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProveedorID" ColumnName="ProveedorID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedors">
+            <EntityTypeMapping TypeName="PrompModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="DireccionID" ColumnName="DireccionID" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="TelefonoID" ColumnName="TelefonoID" />
+                <ScalarProperty Name="TipoProveedorid" ColumnName="TipoProveedorid" />
+                <ScalarProperty Name="ProveedorName" ColumnName="ProveedorName" />
+                <ScalarProperty Name="ProveedorDetails" ColumnName="ProveedorDetails" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Compañia" ColumnName="Compañia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RazonCancelacions">
+            <EntityTypeMapping TypeName="PrompModel.RazonCancelacion">
+              <MappingFragment StoreEntitySet="RazonCancelacions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CancelacionDetalles" ColumnName="CancelacionDetalles" />
+                <ScalarProperty Name="ObservacionCancelacion" ColumnName="ObservacionCancelacion" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RespuestaPreguntaSeguridads">
+            <EntityTypeMapping TypeName="PrompModel.RespuestaPreguntaSeguridad">
+              <MappingFragment StoreEntitySet="RespuestaPreguntaSeguridads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TarjetaCreditoes">
+            <EntityTypeMapping TypeName="PrompModel.TarjetaCredito">
+              <MappingFragment StoreEntitySet="TarjetaCreditoes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="DireccionID" ColumnName="DireccionID" />
+                <ScalarProperty Name="NombreTarjeta" ColumnName="NombreTarjeta" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="NumeroDeSuguridad" ColumnName="NumeroDeSuguridad" />
+                <ScalarProperty Name="FechaCaducidad" ColumnName="FechaCaducidad" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefonos">
+            <EntityTypeMapping TypeName="PrompModel.Telefono">
+              <MappingFragment StoreEntitySet="Telefonos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TelefonoPrimario" ColumnName="TelefonoPrimario" />
+                <ScalarProperty Name="ExtensionPrimario" ColumnName="ExtensionPrimario" />
+                <ScalarProperty Name="TelefonoAlternativo" ColumnName="TelefonoAlternativo" />
+                <ScalarProperty Name="ExtensionAlternativo" ColumnName="ExtensionAlternativo" />
+                <ScalarProperty Name="Cellular" ColumnName="Cellular" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDePagoes">
+            <EntityTypeMapping TypeName="PrompModel.TipoDePago">
+              <MappingFragment StoreEntitySet="TipoDePagoes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDeProveedors">
+            <EntityTypeMapping TypeName="PrompModel.TipoDeProveedor">
+              <MappingFragment StoreEntitySet="TipoDeProveedors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDeVentas">
+            <EntityTypeMapping TypeName="PrompModel.TipoDeVenta">
+              <MappingFragment StoreEntitySet="TipoDeVentas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IncluyeImpuesto" ColumnName="IncluyeImpuesto" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEmails">
+            <EntityTypeMapping TypeName="PrompModel.TipoEmail">
+              <MappingFragment StoreEntitySet="TipoEmails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DetallesEmail" ColumnName="DetallesEmail" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioRecobrarCuentas">
+            <EntityTypeMapping TypeName="PrompModel.UsuarioRecobrarCuenta">
+              <MappingFragment StoreEntitySet="UsuarioRecobrarCuentas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CuentaUsuarioid" ColumnName="CuentaUsuarioid" />
+                <ScalarProperty Name="PreguntaSeguridadID" ColumnName="PreguntaSeguridadID" />
+                <ScalarProperty Name="RespuestaPreguntaSeguridadId" ColumnName="RespuestaPreguntaSeguridadId" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculoes">
+            <EntityTypeMapping TypeName="PrompModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculoes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NombreVehiculo" ColumnName="NombreVehiculo" />
+                <ScalarProperty Name="SubVehiculo" ColumnName="SubVehiculo" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendedors">
+            <EntityTypeMapping TypeName="PrompModel.Vendedor">
+              <MappingFragment StoreEntitySet="Vendedors">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="DireccionID" ColumnName="DireccionID" />
+                <ScalarProperty Name="TelefonosID" ColumnName="TelefonosID" />
+                <ScalarProperty Name="ECorreosID" ColumnName="ECorreosID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VentaEnvios">
+            <EntityTypeMapping TypeName="PrompModel.VentaEnvio">
+              <MappingFragment StoreEntitySet="VentaEnvios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProveedorEnviosID" ColumnName="ProveedorEnviosID" />
+                <ScalarProperty Name="ClienteEntregaID" ColumnName="ClienteEntregaID" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VentaProductos">
+            <EntityTypeMapping TypeName="PrompModel.VentaProducto">
+              <MappingFragment StoreEntitySet="VentaProductos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VentaId" ColumnName="VentaId" />
+                <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+                <ScalarProperty Name="IncluirEnVenta" ColumnName="IncluirEnVenta" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="PrompModel.Venta">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="VendedorID" ColumnName="VendedorID" />
+                <ScalarProperty Name="TipoVentaID" ColumnName="TipoVentaID" />
+                <ScalarProperty Name="TarjetaID" ColumnName="TarjetaID" />
+                <ScalarProperty Name="TipoDePagoID" ColumnName="TipoDePagoID" />
+                <ScalarProperty Name="VentaEnvioID" ColumnName="VentaEnvioID" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ObservacionesVenta" ColumnName="ObservacionesVenta" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
