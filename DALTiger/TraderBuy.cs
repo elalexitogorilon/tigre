@@ -12,14 +12,18 @@ namespace DALTiger
     using System;
     using System.Collections.Generic;
     
-    public partial class RazonCancelacion
+    public partial class TraderBuy
     {
         public int Id { get; set; }
-        public Nullable<int> CancelacionDetalles { get; set; }
-        public string ObservacionCancelacion { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<int> CreatedByID { get; set; }
-        public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<int> ChangedBy { get; set; }
+        public int Accountid { get; set; }
+        public string Symbol { get; set; }
+        public int Units { get; set; }
+        public decimal Prices { get; set; }
+        public System.DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string Changed { get; set; }
+        public string ChangedBy { get; set; }
+    
+        public virtual Account Account { get; set; }
     }
 }

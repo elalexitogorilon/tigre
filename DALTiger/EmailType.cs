@@ -12,22 +12,22 @@ namespace DALTiger
     using System;
     using System.Collections.Generic;
     
-    public partial class TipoDeProveedor
+    public partial class EmailType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TipoDeProveedor()
+        public EmailType()
         {
-            this.Proveedors = new HashSet<Proveedor>();
+            this.EmailAccounts = new HashSet<EmailAccount>();
         }
     
         public int Id { get; set; }
-        public string Detalles { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<int> CreatedByID { get; set; }
-        public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<int> ChangedBy { get; set; }
+        public string Type { get; set; }
+        public string Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string Changed { get; set; }
+        public string ChangedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proveedor> Proveedors { get; set; }
+        public virtual ICollection<EmailAccount> EmailAccounts { get; set; }
     }
 }

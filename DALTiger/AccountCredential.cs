@@ -12,18 +12,17 @@ namespace DALTiger
     using System;
     using System.Collections.Generic;
     
-    public partial class Cliente
+    public partial class AccountCredential
     {
-        public int ID { get; set; }
-        public Nullable<int> PersonID { get; set; }
-        public Nullable<int> DireccionID { get; set; }
-        public Nullable<int> TelefonosID { get; set; }
-        public Nullable<int> ECorreosID { get; set; }
-        public string CURP { get; set; }
-        public string RFC { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<int> CreatedByID { get; set; }
+        public int Id { get; set; }
+        public int AccountId { get; set; }
+        public System.DateTime Created { get; set; }
+        public string CreatedBy { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<int> ChangedBy { get; set; }
+        public Nullable<System.DateTime> ChangedBy { get; set; }
+        public string UserID { get; set; }
+        public string Password { get; set; }
+    
+        public virtual Account Account { get; set; }
     }
 }

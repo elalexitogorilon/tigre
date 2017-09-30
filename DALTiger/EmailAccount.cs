@@ -12,17 +12,19 @@ namespace DALTiger
     using System;
     using System.Collections.Generic;
     
-    public partial class VentaEnvio
+    public partial class EmailAccount
     {
         public int Id { get; set; }
-        public Nullable<int> ProveedorEnviosID { get; set; }
-        public Nullable<int> ClienteEntregaID { get; set; }
-        public Nullable<decimal> Costo { get; set; }
-        public Nullable<decimal> IVA { get; set; }
-        public Nullable<decimal> TOTAL { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<int> CreatedByID { get; set; }
-        public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<int> ChangedBy { get; set; }
+        public int AccountId { get; set; }
+        public int TypeEmailID { get; set; }
+        public string Email { get; set; }
+        public string AlterEmail { get; set; }
+        public string Created { get; set; }
+        public string CreatedBy { get; set; }
+        public string Changed { get; set; }
+        public string ChangedBy { get; set; }
+    
+        public virtual Account Account { get; set; }
+        public virtual EmailType EmailType { get; set; }
     }
 }

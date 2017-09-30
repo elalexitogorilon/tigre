@@ -51,130 +51,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cancelacione.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="Account.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cliente.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="AccountCredential.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClienteEntrega.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="AccountPayment.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="CuentaVendedor.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="EmailAccount.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="Direccion.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="EmailType.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="Email.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ExistenciaProducto.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Foto.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Marca.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="PaymentType.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
     <Compile Include="Person.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PreguntaSeguridad.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Producto.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proveedor.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="TraderBuy.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorEnvio.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
+    <Compile Include="TraderSell.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="RazonCancelacion.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RespuestaPreguntaSeguridad.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TarjetaCredito.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Telefono.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TigreDB.Context.cs">
+    <Compile Include="TraderTiger.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TigreDB.Context.tt</DependentUpon>
+      <DependentUpon>TraderTiger.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="TigreDB.cs">
+    <Compile Include="TraderTiger.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TigreDB.tt</DependentUpon>
+      <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="TigreDB.Designer.cs">
+    <Compile Include="TraderTiger.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TigreDB.edmx</DependentUpon>
+      <DependentUpon>TraderTiger.edmx</DependentUpon>
     </Compile>
-    <Compile Include="TipoDePago.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TipoDeProveedor.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TipoDeVenta.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TipoEmail.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="UsuarioRecobrarCuenta.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vehiculo.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vendedor.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Venta.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VentaEnvio.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VentaProducto.cs">
-      <DependentUpon>TigreDB.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="TigreDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TigreDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="TigreDB.edmx.diagram">
-      <DependentUpon>TigreDB.edmx</DependentUpon>
+    <EntityDeploy Include="TraderTiger.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TraderTiger.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TraderTiger.edmx.diagram">
+      <DependentUpon>TraderTiger.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TigreDB.Context.tt">
+    <Content Include="TraderTiger.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TigreDB.edmx</DependentUpon>
-      <LastGenOutput>TigreDB.Context.cs</LastGenOutput>
+      <LastGenOutput>TraderTiger.Context.cs</LastGenOutput>
+      <DependentUpon>TraderTiger.edmx</DependentUpon>
     </Content>
-    <Content Include="TigreDB.tt">
+    <Content Include="TraderTiger.edmx.sql" />
+    <Content Include="TraderTiger.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TigreDB.edmx</DependentUpon>
-      <LastGenOutput>TigreDB.cs</LastGenOutput>
+      <LastGenOutput>TraderTiger.cs</LastGenOutput>
+      <DependentUpon>TraderTiger.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

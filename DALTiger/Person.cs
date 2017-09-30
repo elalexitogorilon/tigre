@@ -17,22 +17,18 @@ namespace DALTiger
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Person()
         {
-            this.Proveedors = new HashSet<Proveedor>();
-            this.Vendedors = new HashSet<Vendedor>();
+            this.Accounts = new HashSet<Account>();
         }
     
-        public int ID { get; set; }
-        public string Nombre { get; set; }
-        public string ApellidoPaterno { get; set; }
-        public string ApellidoMaterno { get; set; }
-        public Nullable<System.DateTime> Created { get; set; }
-        public Nullable<int> CreatedByID { get; set; }
-        public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<int> ChangedBy { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public System.DateTime Created { get; set; }
+        public Nullable<System.Guid> CreatedByID { get; set; }
+        public Nullable<System.DateTime> ChangedDateTime { get; set; }
+        public Nullable<System.Guid> ChangedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proveedor> Proveedors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vendedor> Vendedors { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }
