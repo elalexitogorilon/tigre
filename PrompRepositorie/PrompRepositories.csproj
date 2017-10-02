@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E47EB4C-D1E8-44AE-8879-2E9AA6D4A77A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrompRepositories</RootNamespace>
+    <AssemblyName>PrompRepositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DBconnection\ContextConnection.cs" />
+    <Compile Include="Services\EntityService\OceanProducto.cs" />
+    <Compile Include="Services\EntityService\Direcciones.cs" />
+    <Compile Include="Services\EntityService\Emails.cs" />
+    <Compile Include="Services\EntityService\Marcas.cs" />
+    <Compile Include="Services\EntityService\OceanTicket.cs" />
+    <Compile Include="Services\EntityService\Persons.cs" />
+    <Compile Include="Services\EntityService\Productos.cs" />
+    <Compile Include="Services\EntityService\Proveedor.cs" />
+    <Compile Include="Services\EntityService\Telefono.cs" />
+    <Compile Include="Services\EntityService\TipoProveedor.cs" />
+    <Compile Include="Services\EntityService\Vehiculo.cs" />
+    <Compile Include="Services\EntityService\VendedorService.cs" />
+    <Compile Include="Services\Interfaces\IDireccion.cs" />
+    <Compile Include="Services\Interfaces\IEmail.cs" />
+    <Compile Include="Services\Interfaces\IMarca.cs" />
+    <Compile Include="Services\Interfaces\IOceanProducto.cs" />
+    <Compile Include="Services\Interfaces\IOceanTicket.cs" />
+    <Compile Include="Services\Interfaces\IPerson.cs" />
+    <Compile Include="Services\Interfaces\IProducto.cs" />
+    <Compile Include="Services\Interfaces\IProveedor.cs" />
+    <Compile Include="Services\Interfaces\ITelephone.cs" />
+    <Compile Include="Services\Interfaces\ITipoProveedor.cs" />
+    <Compile Include="Services\Interfaces\IVehiculo.cs" />
+    <Compile Include="Services\Interfaces\IVendedor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WebApplication2\DALocean\DALocean.csproj">
+      <Project>{a46b40bc-bd0c-4d97-a9fc-137b79ee34d3}</Project>
+      <Name>DALocean</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WebApplication2\DAL\DAL.csproj">
+      <Project>{e6721fa7-07c6-465e-983c-3ed994770b8c}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories\Repositories.csproj">
+      <Project>{75601251-b2b3-452d-a728-111e88cee064}</Project>
+      <Name>Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
