@@ -24,9 +24,9 @@ namespace DALTiger
         public string Name { get; set; }
         public string LastName { get; set; }
         public System.DateTime Created { get; set; }
-        public Nullable<System.Guid> CreatedByID { get; set; }
-        public Nullable<System.DateTime> ChangedDateTime { get; set; }
-        public Nullable<System.Guid> ChangedBy { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> Changed { get; set; }
+        public string ChangedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }

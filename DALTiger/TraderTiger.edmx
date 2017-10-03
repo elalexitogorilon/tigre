@@ -5,18 +5,34 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="TraderTiger.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountAddresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="ZipCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
+        </EntityType>
         <EntityType Name="AccountCredentials">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
-          <Property Name="ChangedBy" Type="datetime" />
-          <Property Name="UserID" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="AccountPayments">
           <Key>
@@ -24,12 +40,12 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="PaymentTypeID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
-          <Property Name="ChangedBy" Type="datetime" />
-          <Property Name="PaymentTypeID" Type="int" Nullable="false" />
-          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Accounts">
           <Key>
@@ -40,7 +56,7 @@
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
-          <Property Name="ChangedBy" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="EmailAccounts">
           <Key>
@@ -51,9 +67,9 @@
           <Property Name="TypeEmailID" Type="int" Nullable="false" />
           <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="AlterEmail" Type="nvarchar(max)" />
-          <Property Name="Created" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="Changed" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="EmailTypes">
@@ -62,9 +78,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Created" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="Changed" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PaymentTypes">
@@ -73,9 +89,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TypePayment" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Created" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="Changed" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="People">
@@ -86,9 +102,9 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
-          <Property Name="CreatedByID" Type="uniqueidentifier" />
-          <Property Name="ChangedDateTime" Type="datetime" />
-          <Property Name="ChangedBy" Type="uniqueidentifier" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TraderBuys">
           <Key>
@@ -101,7 +117,7 @@
           <Property Name="Prices" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="Changed" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TraderSells">
@@ -115,9 +131,21 @@
           <Property Name="Prices" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="Changed" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
+        <Association Name="FK_AccountAccountAddress">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="AccountAddresses" Type="Self.AccountAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountAddresses">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AccountAccountCredentials">
           <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
           <End Role="AccountCredentials" Type="Self.AccountCredentials" Multiplicity="*" />
@@ -215,6 +243,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TraderTigerStoreContainer">
+          <EntitySet Name="AccountAddresses" EntityType="Self.AccountAddresses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountCredentials" EntityType="Self.AccountCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountPayments" EntityType="Self.AccountPayments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
@@ -224,6 +253,10 @@
           <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TraderBuys" EntityType="Self.TraderBuys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TraderSells" EntityType="Self.TraderSells" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccountAccountAddress" Association="Self.FK_AccountAccountAddress">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="AccountAddresses" EntitySet="AccountAddresses" />
+          </AssociationSet>
           <AssociationSet Name="FK_AccountAccountCredentials" Association="Self.FK_AccountAccountCredentials">
             <End Role="Accounts" EntitySet="Accounts" />
             <End Role="AccountCredentials" EntitySet="AccountCredentials" />
@@ -262,6 +295,7 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TraderTiger" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="TraderTigerContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountAddresses" EntityType="TraderTiger.AccountAddress" />
           <EntitySet Name="AccountCredentials" EntityType="TraderTiger.AccountCredential" />
           <EntitySet Name="AccountPayments" EntityType="TraderTiger.AccountPayment" />
           <EntitySet Name="Accounts" EntityType="TraderTiger.Account" />
@@ -271,6 +305,10 @@
           <EntitySet Name="People" EntityType="TraderTiger.Person" />
           <EntitySet Name="TraderBuys" EntityType="TraderTiger.TraderBuy" />
           <EntitySet Name="TraderSells" EntityType="TraderTiger.TraderSell" />
+          <AssociationSet Name="FK_AccountAccountAddress" Association="TraderTiger.FK_AccountAccountAddress">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="AccountAddress" EntitySet="AccountAddresses" />
+          </AssociationSet>
           <AssociationSet Name="FK_AccountAccountCredentials" Association="TraderTiger.FK_AccountAccountCredentials">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="AccountCredential" EntitySet="AccountCredentials" />
@@ -304,18 +342,35 @@
             <End Role="EmailAccount" EntitySet="EmailAccounts" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AccountAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountAccountAddress" FromRole="AccountAddress" ToRole="Account" />
+        </EntityType>
         <EntityType Name="AccountCredential">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="DateTime" Precision="3" />
-          <Property Name="UserID" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountAccountCredentials" FromRole="AccountCredential" ToRole="Account" />
         </EntityType>
         <EntityType Name="AccountPayment">
@@ -324,12 +379,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="PaymentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="DateTime" Precision="3" />
-          <Property Name="PaymentTypeID" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountAccountPayments" FromRole="AccountPayment" ToRole="Account" />
           <NavigationProperty Name="PaymentType" Relationship="TraderTiger.FK_PaymentTypeAccountPayments" FromRole="AccountPayment" ToRole="PaymentType" />
         </EntityType>
@@ -342,7 +397,8 @@
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccountAddresses" Relationship="TraderTiger.FK_AccountAccountAddress" FromRole="Account" ToRole="AccountAddress" />
           <NavigationProperty Name="AccountCredentials" Relationship="TraderTiger.FK_AccountAccountCredentials" FromRole="Account" ToRole="AccountCredential" />
           <NavigationProperty Name="AccountPayments" Relationship="TraderTiger.FK_AccountAccountPayments" FromRole="Account" ToRole="AccountPayment" />
           <NavigationProperty Name="EmailAccounts" Relationship="TraderTiger.FK_AccountEmailAccount" FromRole="Account" ToRole="EmailAccount" />
@@ -359,9 +415,9 @@
           <Property Name="TypeEmailID" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AlterEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountEmailAccount" FromRole="EmailAccount" ToRole="Account" />
           <NavigationProperty Name="EmailType" Relationship="TraderTiger.FK_EmailTypeEmailAccount" FromRole="EmailAccount" ToRole="EmailType" />
@@ -372,9 +428,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="EmailAccounts" Relationship="TraderTiger.FK_EmailTypeEmailAccount" FromRole="EmailType" ToRole="EmailAccount" />
         </EntityType>
@@ -384,9 +440,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypePayment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AccountPayments" Relationship="TraderTiger.FK_PaymentTypeAccountPayments" FromRole="PaymentType" ToRole="AccountPayment" />
         </EntityType>
@@ -398,9 +454,9 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedByID" Type="Guid" />
-          <Property Name="ChangedDateTime" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="Guid" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Accounts" Relationship="TraderTiger.FK_PersonAccount" FromRole="Person" ToRole="Account" />
         </EntityType>
         <EntityType Name="TraderBuy">
@@ -414,7 +470,7 @@
           <Property Name="Prices" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountTraderBuy" FromRole="TraderBuy" ToRole="Account" />
         </EntityType>
@@ -429,10 +485,22 @@
           <Property Name="Prices" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountTraderSell" FromRole="TraderSell" ToRole="Account" />
         </EntityType>
+        <Association Name="FK_AccountAccountAddress">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.AccountAddress" Role="AccountAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccountAddress">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AccountAccountCredentials">
           <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
           <End Type="TraderTiger.AccountCredential" Role="AccountCredential" Multiplicity="*" />
@@ -535,15 +603,32 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TraderTigerStoreContainer" CdmEntityContainer="TraderTigerContainer">
+          <EntitySetMapping Name="AccountAddresses">
+            <EntityTypeMapping TypeName="TraderTiger.AccountAddress">
+              <MappingFragment StoreEntitySet="AccountAddresses">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AccountCredentials">
             <EntityTypeMapping TypeName="TraderTiger.AccountCredential">
               <MappingFragment StoreEntitySet="AccountCredentials">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
                 <ScalarProperty Name="Changed" ColumnName="Changed" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="AccountId" ColumnName="AccountId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -552,12 +637,12 @@
           <EntitySetMapping Name="AccountPayments">
             <EntityTypeMapping TypeName="TraderTiger.AccountPayment">
               <MappingFragment StoreEntitySet="AccountPayments">
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
                 <ScalarProperty Name="Changed" ColumnName="Changed" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
                 <ScalarProperty Name="AccountId" ColumnName="AccountId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -618,8 +703,8 @@
             <EntityTypeMapping TypeName="TraderTiger.Person">
               <MappingFragment StoreEntitySet="People">
                 <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
-                <ScalarProperty Name="ChangedDateTime" ColumnName="ChangedDateTime" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

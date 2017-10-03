@@ -49,30 +49,28 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DBconnection\ContextConnection.cs" />
-    <Compile Include="Services\EntityService\OceanProducto.cs" />
-    <Compile Include="Services\EntityService\Direcciones.cs" />
-    <Compile Include="Services\EntityService\Emails.cs" />
-    <Compile Include="Services\EntityService\Marcas.cs" />
-    <Compile Include="Services\EntityService\OceanTicket.cs" />
+    <Compile Include="Services\EntityService\Account.cs" />
+    <Compile Include="Services\EntityService\AccountAddress.cs" />
+    <Compile Include="Services\EntityService\AccountCredentials.cs" />
+    <Compile Include="Services\EntityService\AccountPaymet.cs" />
+    <Compile Include="Services\EntityService\EmailAccount.cs" />
+    <Compile Include="Services\EntityService\EmailType.cs" />
+    <Compile Include="Services\EntityService\Generic.cs" />
+    <Compile Include="Services\EntityService\TraderBuys.cs" />
+    <Compile Include="Services\EntityService\TraderSells.cs" />
+    <Compile Include="Services\Interfaces\IAccount.cs" />
+    <Compile Include="Services\EntityService\PaymentTypes.cs" />
     <Compile Include="Services\EntityService\Persons.cs" />
-    <Compile Include="Services\EntityService\Productos.cs" />
-    <Compile Include="Services\EntityService\Proveedor.cs" />
-    <Compile Include="Services\EntityService\Telefono.cs" />
-    <Compile Include="Services\EntityService\TipoProveedor.cs" />
-    <Compile Include="Services\EntityService\Vehiculo.cs" />
-    <Compile Include="Services\EntityService\VendedorService.cs" />
-    <Compile Include="Services\Interfaces\IDireccion.cs" />
-    <Compile Include="Services\Interfaces\IEmail.cs" />
-    <Compile Include="Services\Interfaces\IMarca.cs" />
-    <Compile Include="Services\Interfaces\IOceanProducto.cs" />
-    <Compile Include="Services\Interfaces\IOceanTicket.cs" />
+    <Compile Include="Services\Interfaces\IAccountAddress.cs" />
+    <Compile Include="Services\Interfaces\IAccountCredentials.cs" />
+    <Compile Include="Services\Interfaces\IAccountPaymet.cs" />
+    <Compile Include="Services\Interfaces\IEmailAccount.cs" />
+    <Compile Include="Services\Interfaces\IEmailType.cs" />
+    <Compile Include="Services\Interfaces\Igeneric.cs" />
     <Compile Include="Services\Interfaces\IPerson.cs" />
-    <Compile Include="Services\Interfaces\IProducto.cs" />
-    <Compile Include="Services\Interfaces\IProveedor.cs" />
-    <Compile Include="Services\Interfaces\ITelephone.cs" />
-    <Compile Include="Services\Interfaces\ITipoProveedor.cs" />
-    <Compile Include="Services\Interfaces\IVehiculo.cs" />
-    <Compile Include="Services\Interfaces\IVendedor.cs" />
+    <Compile Include="Services\Interfaces\IPaymentTypes.cs" />
+    <Compile Include="Services\Interfaces\ITraderBuys.cs" />
+    <Compile Include="Services\Interfaces\ITraderSells.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,13 +78,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WebApplication2\DALocean\DALocean.csproj">
-      <Project>{a46b40bc-bd0c-4d97-a9fc-137b79ee34d3}</Project>
-      <Name>DALocean</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\WebApplication2\DAL\DAL.csproj">
-      <Project>{e6721fa7-07c6-465e-983c-3ed994770b8c}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\DALTiger\DALTiger.csproj">
+      <Project>{21d3ef73-75bd-43af-a79b-13fc1ee17628}</Project>
+      <Name>DALTiger</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repositories\Repositories.csproj">
       <Project>{75601251-b2b3-452d-a728-111e88cee064}</Project>

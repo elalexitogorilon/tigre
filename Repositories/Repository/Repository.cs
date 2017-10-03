@@ -5,10 +5,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using Repositories.BaseInterface;
-//using DALPromp = DAL.DataAccess;
+//using DALPromp = DALTiger;
 //using DALOcen = OceanikarDAL.EF;
-using Newoceandal =  DAL.DataAccess;
-using DALocean.DataAccess;
+using  DALTiger;
+
 
 namespace Repositories.Repository
 {
@@ -28,7 +28,7 @@ namespace Repositories.Repository
         public Repository()
         {
             
-            Context = new Newoceandal.PrompEntitiesDev();
+            Context = new TraderTigerContainer();
         }
 
         public Repository(bool ocean =  true)
@@ -36,11 +36,11 @@ namespace Repositories.Repository
           
             if (ocean)
             {
-                Context = new NewOceanicarefEntities();
+                Context = new TraderTigerContainer();
                 return;
             }
 
-            Context = new Newoceandal.PrompEntitiesDev();//   oceanicaProdEntities();
+            Context = new TraderTigerContainer();//   
         }
 
 

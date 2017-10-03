@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using DAL.DataAccess;
+using DALTiger;
 using PrompRepositories.Services.Interfaces;
 using Repositories.BaseInterface;
 using PrompRepositories.Services.DBconnection;
@@ -11,9 +11,9 @@ namespace PrompRepositories.Services.EntityService
     {
         private IBaseRepository<Person> personrepo;
 
-        public Persons(IBaseRepository<Person> producrepor)
+        public Persons(IBaseRepository<Person> inputrepo)
         {
-            personrepo = producrepor;
+            personrepo = inputrepo;
         }
 
         public Persons()
@@ -29,7 +29,7 @@ namespace PrompRepositories.Services.EntityService
 
         public Person GetPerson(int id)
         {
-            return personrepo.Find(x => x.ID == id);
+            return personrepo.Find(x => x.Id == id);
         }
 
         public void InsertPerson(Person entity)

@@ -5,15 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a5dd2bbc86f0470eb9dafd45e79eb0ef" Name="Diagram1" ZoomLevel="86" >
-        <EntityTypeShape EntityType="TraderTiger.AccountCredential" Width="1.5" PointX="5.25" PointY="9.375" />
-        <EntityTypeShape EntityType="TraderTiger.AccountPayment" Width="1.5" PointX="5.25" PointY="5.125" />
-        <EntityTypeShape EntityType="TraderTiger.Account" Width="1.5" PointX="3" PointY="8.875" />
-        <EntityTypeShape EntityType="TraderTiger.EmailAccount" Width="1.5" PointX="8.25" PointY="9" />
-        <EntityTypeShape EntityType="TraderTiger.EmailType" Width="1.5" PointX="6" PointY="1.375" />
-        <EntityTypeShape EntityType="TraderTiger.PaymentType" Width="1.5" PointX="3" PointY="5.375" />
-        <EntityTypeShape EntityType="TraderTiger.Person" Width="1.5" PointX="0.75" PointY="9.25" />
-        <EntityTypeShape EntityType="TraderTiger.TraderBuy" Width="1.5" PointX="5.25" PointY="20.25" />
-        <EntityTypeShape EntityType="TraderTiger.TraderSell" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="TraderTiger.AccountAddress" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="TraderTiger.AccountCredential" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="TraderTiger.AccountPayment" Width="1.5" PointX="8.25" PointY="11.375" />
+        <EntityTypeShape EntityType="TraderTiger.Account" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="TraderTiger.EmailAccount" Width="1.5" PointX="8.25" PointY="7.25" />
+        <EntityTypeShape EntityType="TraderTiger.EmailType" Width="1.5" PointX="6" PointY="9.625" />
+        <EntityTypeShape EntityType="TraderTiger.PaymentType" Width="1.5" PointX="6" PointY="17.625" />
+        <EntityTypeShape EntityType="TraderTiger.Person" Width="1.5" PointX="0.75" PointY="11.5" />
+        <EntityTypeShape EntityType="TraderTiger.TraderBuy" Width="1.5" PointX="5.25" PointY="20.875" />
+        <EntityTypeShape EntityType="TraderTiger.TraderSell" Width="1.5" PointX="5.25" PointY="24.5" />
+        <AssociationConnector Association="TraderTiger.FK_AccountAccountAddress" />
         <AssociationConnector Association="TraderTiger.FK_AccountAccountCredentials" />
         <AssociationConnector Association="TraderTiger.FK_AccountAccountPayments" />
         <AssociationConnector Association="TraderTiger.FK_PaymentTypeAccountPayments" />

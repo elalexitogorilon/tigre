@@ -7,13 +7,13 @@ using Repositories.Repository;
 
 namespace PrompRepositories.Services.Interfaces
 {
-    public interface IPerson
+    public interface ITraderSells
     {
-        IQueryable<Person> GetPersons();
-        Person GetPerson(int id);
-        void InsertPerson(Person entity);
-        void UpdatePerson(Person entity);
-        void DeletePerson(Person entity);
+        IQueryable<TraderSell> GetTraderSells();
+        TraderSell GetTraderSell(int id);
+        void InsertTraderSell(TraderSell entity);
+        void UpdateTraderSell(TraderSell entity);
+        void DeleteTraderSell(TraderSell entity);
         void Save();
     }
 }

@@ -17,6 +17,7 @@ namespace DALTiger
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
         {
+            this.AccountAddresses = new HashSet<AccountAddress>();
             this.AccountCredentials = new HashSet<AccountCredential>();
             this.AccountPayments = new HashSet<AccountPayment>();
             this.EmailAccounts = new HashSet<EmailAccount>();
@@ -29,8 +30,10 @@ namespace DALTiger
         public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<System.DateTime> ChangedBy { get; set; }
+        public string ChangedBy { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AccountAddress> AccountAddresses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccountCredential> AccountCredentials { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

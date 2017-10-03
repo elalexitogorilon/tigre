@@ -54,6 +54,9 @@
     <Compile Include="Account.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccountAddress.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
     <Compile Include="AccountCredential.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>

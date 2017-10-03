@@ -12,16 +12,19 @@ namespace DALTiger
     using System;
     using System.Collections.Generic;
     
-    public partial class AccountCredential
+    public partial class AccountAddress
     {
         public int Id { get; set; }
         public int AccountId { get; set; }
-        public string UserID { get; set; }
-        public string Password { get; set; }
-        public System.DateTime Created { get; set; }
-        public string CreatedBy { get; set; }
+        public string Address { get; set; }
+        public string Address2 { get; set; }
+        public string ZipCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public Nullable<System.DateTime> Created { get; set; }
+        public Nullable<int> CreatedByID { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }
-        public string ChangedBy { get; set; }
+        public Nullable<int> ChangedBy { get; set; }
     
         public virtual Account Account { get; set; }
     }

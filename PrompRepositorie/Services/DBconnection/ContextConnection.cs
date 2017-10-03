@@ -4,8 +4,10 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL.DataAccess;
-using DALocean.DataAccess;
+//using DALTiger;
+//using DALocean.DataAccess;g 
+using DALTiger;
+
 
 namespace PrompRepositories.Services.DBconnection
 {
@@ -17,7 +19,7 @@ namespace PrompRepositories.Services.DBconnection
     public class ContextConnection
     {
         static DbContext context;
-        static bool oceancontext = false;
+        static bool tigercontext = false;
         /// <summary>
         /// Gets or sets the context.
         /// </summary>
@@ -29,26 +31,26 @@ namespace PrompRepositories.Services.DBconnection
         /// 
 
 
-       public static bool ContextOcean
+       public static bool TigerDal
         {
             get {
-                return oceancontext;
+                return tigercontext;
             }
             set
             {
-                oceancontext = value;
+                tigercontext = value;
             }
         }
 
 
         public static DbContext SetContextConnection()
         {
-            if (ContextOcean)
+            if (TigerDal)
             {
-                return new NewOceanicarefEntities();
+                return new TraderTigerContainer();
             }
 
-            return  new PrompEntitiesDev();
+            return new TraderTigerContainer();
         }
         public static DbContext Context
         {
@@ -56,7 +58,7 @@ namespace PrompRepositories.Services.DBconnection
             // working fine 03/04 need to refresh the entity framework
             get
             {
-                if (context == null || ContextOcean )
+                if (context == null || TigerDal )
                 {
                     try
                     {

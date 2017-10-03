@@ -16,12 +16,12 @@ namespace DALTiger
     {
         public int Id { get; set; }
         public int AccountId { get; set; }
+        public int PaymentTypeID { get; set; }
+        public decimal Amount { get; set; }
         public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }
-        public Nullable<System.DateTime> ChangedBy { get; set; }
-        public int PaymentTypeID { get; set; }
-        public decimal Amount { get; set; }
+        public string ChangedBy { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual PaymentType PaymentType { get; set; }

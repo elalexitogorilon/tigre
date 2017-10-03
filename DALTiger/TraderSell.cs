@@ -21,7 +21,7 @@ namespace DALTiger
         public decimal Prices { get; set; }
         public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }
-        public string Changed { get; set; }
+        public Nullable<System.DateTime> Changed { get; set; }
         public string ChangedBy { get; set; }
     
         public virtual Account Account { get; set; }

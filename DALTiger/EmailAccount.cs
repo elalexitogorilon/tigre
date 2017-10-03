@@ -19,9 +19,9 @@ namespace DALTiger
         public int TypeEmailID { get; set; }
         public string Email { get; set; }
         public string AlterEmail { get; set; }
-        public string Created { get; set; }
+        public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }
-        public string Changed { get; set; }
+        public Nullable<System.DateTime> Changed { get; set; }
         public string ChangedBy { get; set; }
     
         public virtual Account Account { get; set; }

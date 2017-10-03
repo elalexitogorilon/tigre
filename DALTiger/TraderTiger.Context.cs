@@ -25,6 +25,7 @@ namespace DALTiger
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AccountAddress> AccountAddresses { get; set; }
         public virtual DbSet<AccountCredential> AccountCredentials { get; set; }
         public virtual DbSet<AccountPayment> AccountPayments { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }

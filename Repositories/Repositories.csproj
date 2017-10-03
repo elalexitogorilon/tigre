@@ -56,13 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WebApplication2\DALocean\DALocean.csproj">
-      <Project>{a46b40bc-bd0c-4d97-a9fc-137b79ee34d3}</Project>
-      <Name>DALocean</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\WebApplication2\DAL\DAL.csproj">
-      <Project>{e6721fa7-07c6-465e-983c-3ed994770b8c}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\DALTiger\DALTiger.csproj">
+      <Project>{21d3ef73-75bd-43af-a79b-13fc1ee17628}</Project>
+      <Name>DALTiger</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
