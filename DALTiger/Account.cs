@@ -23,6 +23,9 @@ namespace DALTiger
             this.EmailAccounts = new HashSet<EmailAccount>();
             this.TraderBuys = new HashSet<TraderBuy>();
             this.TraderSells = new HashSet<TraderSell>();
+            this.BillingAddresses = new HashSet<BillingAddress>();
+            this.Phones = new HashSet<Phone>();
+            this.SocialMedias = new HashSet<SocialMedia>();
         }
     
         public int Id { get; set; }
@@ -31,6 +34,7 @@ namespace DALTiger
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }
         public string ChangedBy { get; set; }
+        public int AccountStatusId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccountAddress> AccountAddresses { get; set; }
@@ -45,5 +49,12 @@ namespace DALTiger
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TraderSell> TraderSells { get; set; }
         public virtual Person Person { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BillingAddress> BillingAddresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Phone> Phones { get; set; }
+        public virtual AccountStatus AccountStatu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SocialMedia> SocialMedias { get; set; }
     }
 }

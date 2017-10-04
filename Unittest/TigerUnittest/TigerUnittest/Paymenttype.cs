@@ -17,17 +17,24 @@ namespace TigerUnittest
         //}
 
 
-        [TestMethod]
-        public void InsertEmailtypes()
-        {
-            EmailTypes pt = new EmailTypes();
+       // [TestMethod]
+        //public void InsertEmailtypes()
+        //{
+        //    EmailTypes pt = new EmailTypes();
 
-            pt.InsertEmailTypes(new DALTiger.EmailType { Type = "Business", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
-            pt.InsertEmailTypes(new DALTiger.EmailType { Type = "Home", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
-            pt.InsertEmailTypes(new DALTiger.EmailType { Type = "Personal", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
-            pt.InsertEmailTypes(new DALTiger.EmailType { Type = "School", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
+        //    pt.InsertEmailTypes(new DALTiger.EmailType { Type = "Business", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
+        //    pt.InsertEmailTypes(new DALTiger.EmailType { Type = "Home", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
+        //    pt.InsertEmailTypes(new DALTiger.EmailType { Type = "Personal", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
+        //    pt.InsertEmailTypes(new DALTiger.EmailType { Type = "School", Created = DateTime.Now, CreatedBy = "SA", Changed = null, ChangedBy = null });
+        //}
+
+        [TestMethod]
+        public void getEmailtypes()
+        {
+            EmailTypes pt = new EmailTypes();            
+            var res = pt.GetEmailTypes(1);
+
         }
     }
 }
-
 

@@ -35,5 +35,11 @@ namespace DALTiger
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<TraderBuy> TraderBuys { get; set; }
         public virtual DbSet<TraderSell> TraderSells { get; set; }
+        public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
+        public virtual DbSet<PhoneType> PhoneTypes { get; set; }
+        public virtual DbSet<Phone> Phones { get; set; }
+        public virtual DbSet<AccountStatus> AccountStatus { get; set; }
+        public virtual DbSet<SocialMedia> SocialMedias { get; set; }
+        public virtual DbSet<SocialType> SocialTypes { get; set; }
     }
 }

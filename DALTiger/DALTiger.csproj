@@ -63,6 +63,12 @@
     <Compile Include="AccountPayment.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
+    <Compile Include="AccountStatus.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BillingAddress.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmailAccount.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
@@ -75,7 +81,19 @@
     <Compile Include="Person.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
+    <Compile Include="Phone.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhoneType.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocialMedia.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SocialType.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
     <Compile Include="TraderBuy.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>

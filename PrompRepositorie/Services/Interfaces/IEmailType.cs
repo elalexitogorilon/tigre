@@ -7,7 +7,7 @@ using Repositories.Repository;
 
 namespace PrompRepositories.Services.Interfaces
 {
-    interface IEmailType
+    public interface IEmailType
     {
          
         IQueryable<EmailType> GetEmailTypes();

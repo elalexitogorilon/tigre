@@ -7,14 +7,14 @@
       <Diagram DiagramId="a5dd2bbc86f0470eb9dafd45e79eb0ef" Name="Diagram1" ZoomLevel="86" >
         <EntityTypeShape EntityType="TraderTiger.AccountAddress" Width="1.5" PointX="5.25" PointY="12.875" />
         <EntityTypeShape EntityType="TraderTiger.AccountCredential" Width="1.5" PointX="5.25" PointY="5.75" />
-        <EntityTypeShape EntityType="TraderTiger.AccountPayment" Width="1.5" PointX="8.25" PointY="11.375" />
+        <EntityTypeShape EntityType="TraderTiger.AccountPayment" Width="1.875" PointX="8.25" PointY="11.375" />
         <EntityTypeShape EntityType="TraderTiger.Account" Width="1.5" PointX="3" PointY="11" />
         <EntityTypeShape EntityType="TraderTiger.EmailAccount" Width="1.5" PointX="8.25" PointY="7.25" />
         <EntityTypeShape EntityType="TraderTiger.EmailType" Width="1.5" PointX="6" PointY="9.625" />
-        <EntityTypeShape EntityType="TraderTiger.PaymentType" Width="1.5" PointX="6" PointY="17.625" />
+        <EntityTypeShape EntityType="TraderTiger.PaymentType" Width="1.5" PointX="12.75" PointY="11.625" />
         <EntityTypeShape EntityType="TraderTiger.Person" Width="1.5" PointX="0.75" PointY="11.5" />
-        <EntityTypeShape EntityType="TraderTiger.TraderBuy" Width="1.5" PointX="5.25" PointY="20.875" />
-        <EntityTypeShape EntityType="TraderTiger.TraderSell" Width="1.5" PointX="5.25" PointY="24.5" />
+        <EntityTypeShape EntityType="TraderTiger.TraderBuy" Width="1.5" PointX="5.875" PointY="18" />
+        <EntityTypeShape EntityType="TraderTiger.TraderSell" Width="1.5" PointX="8.375" PointY="18.75" />
         <AssociationConnector Association="TraderTiger.FK_AccountAccountAddress" />
         <AssociationConnector Association="TraderTiger.FK_AccountAccountCredentials" />
         <AssociationConnector Association="TraderTiger.FK_AccountAccountPayments" />
@@ -24,6 +24,18 @@
         <AssociationConnector Association="TraderTiger.FK_AccountTraderSell" />
         <AssociationConnector Association="TraderTiger.FK_PersonAccount" />
         <AssociationConnector Association="TraderTiger.FK_EmailTypeEmailAccount" />
+        <EntityTypeShape EntityType="TraderTiger.BillingAddress" Width="1.5" PointX="10.25" PointY="14.75" />
+        <AssociationConnector Association="TraderTiger.AccountBillingAddress" />
+        <EntityTypeShape EntityType="TraderTiger.PhoneType" Width="1.5" PointX="15.125" PointY="7.875" />
+        <EntityTypeShape EntityType="TraderTiger.Phone" Width="1.5" PointX="12.125" PointY="7.5" />
+        <AssociationConnector Association="TraderTiger.PhoneTypePhone" />
+        <AssociationConnector Association="TraderTiger.AccountPhone" />
+        <EntityTypeShape EntityType="TraderTiger.AccountStatus" Width="1.5" PointX="1.5" PointY="6.875" />
+        <AssociationConnector Association="TraderTiger.AccountStatusAccount" />
+        <EntityTypeShape EntityType="TraderTiger.SocialMedia" Width="1.5" PointX="10" PointY="4.625" />
+        <EntityTypeShape EntityType="TraderTiger.SocialType" Width="1.5" PointX="13.25" PointY="4.25" />
+        <AssociationConnector Association="TraderTiger.SocialTypeSocialMedia" />
+        <AssociationConnector Association="TraderTiger.AccountSocialMedia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

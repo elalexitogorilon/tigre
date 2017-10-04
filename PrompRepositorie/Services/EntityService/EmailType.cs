@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Collections;
 using DALTiger;
 using PrompRepositories.Services.Interfaces;
 using Repositories.BaseInterface;
@@ -26,6 +27,12 @@ namespace PrompRepositories.Services.EntityService
         public IQueryable<EmailType> GetEmailTypes()
         {
             return emailtypesrepo.All();
+        }
+
+        public System.Collections.Generic.IList<EmailType> MyTypes()
+        {
+            var test = emailtypesrepo.All().ToList();
+            return test;
         }
 
         public EmailType GetEmailTypes(int id)

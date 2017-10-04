@@ -11,9 +11,10 @@ using Repositories.BaseInterface;
 using PrompRepositories.Services.DBconnection;
 
 
+
 namespace PrompRepositories.Services.EntityService
 {
-    //public class Generic: Interfaces.Igeneric<T> where T : class
+    //public class Genericapp : Igenericapp<T> where T : class
     //{
     //    private IBaseRepository<T> repo;
 
@@ -22,11 +23,11 @@ namespace PrompRepositories.Services.EntityService
     //        return repo.All();
     //    }
 
-      
-    //    //public T GetBy(int id, System.Linq.Expressions<Func<T,Tres>>, e)
-    //    //{
-    //    //    return repo.Find()
-    //    //}
+
+    //    public T GetBy(Expression<Func<T, IEnumerable<T>>> expresion)
+    //    {
+    //        return repo.Find(expresion);
+    //    }
 
     //    public void Insert(T entity)
     //    {
@@ -46,7 +47,7 @@ namespace PrompRepositories.Services.EntityService
     //        repo.Save();
     //    }
 
-       
+
     //}
 }
 

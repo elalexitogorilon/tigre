@@ -341,6 +341,36 @@
             <End Role="EmailType" EntitySet="EmailTypes" />
             <End Role="EmailAccount" EntitySet="EmailAccounts" />
           </AssociationSet>
+          <EntitySet Name="BillingAddresses" EntityType="TraderTiger.BillingAddress" />
+          <AssociationSet Name="AccountBillingAddress" Association="TraderTiger.AccountBillingAddress">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="BillingAddress" EntitySet="BillingAddresses" />
+          </AssociationSet>
+          <EntitySet Name="PhoneTypes" EntityType="TraderTiger.PhoneType" />
+          <EntitySet Name="Phones" EntityType="TraderTiger.Phone" />
+          <AssociationSet Name="PhoneTypePhone" Association="TraderTiger.PhoneTypePhone">
+            <End Role="PhoneType" EntitySet="PhoneTypes" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+          <AssociationSet Name="AccountPhone" Association="TraderTiger.AccountPhone">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+          <EntitySet Name="AccountStatus" EntityType="TraderTiger.AccountStatus" />
+          <AssociationSet Name="AccountStatusAccount" Association="TraderTiger.AccountStatusAccount">
+            <End Role="AccountStatus" EntitySet="AccountStatus" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <EntitySet Name="SocialMedias" EntityType="TraderTiger.SocialMedia" />
+          <EntitySet Name="SocialTypes" EntityType="TraderTiger.SocialType" />
+          <AssociationSet Name="SocialTypeSocialMedia" Association="TraderTiger.SocialTypeSocialMedia">
+            <End Role="SocialType" EntitySet="SocialTypes" />
+            <End Role="SocialMedia" EntitySet="SocialMedias" />
+          </AssociationSet>
+          <AssociationSet Name="AccountSocialMedia" Association="TraderTiger.AccountSocialMedia">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="SocialMedia" EntitySet="SocialMedias" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AccountAddress">
           <Key>
@@ -405,6 +435,11 @@
           <NavigationProperty Name="TraderBuys" Relationship="TraderTiger.FK_AccountTraderBuy" FromRole="Account" ToRole="TraderBuy" />
           <NavigationProperty Name="TraderSells" Relationship="TraderTiger.FK_AccountTraderSell" FromRole="Account" ToRole="TraderSell" />
           <NavigationProperty Name="Person" Relationship="TraderTiger.FK_PersonAccount" FromRole="Account" ToRole="Person" />
+          <NavigationProperty Name="BillingAddresses" Relationship="TraderTiger.AccountBillingAddress" FromRole="Account" ToRole="BillingAddress" />
+          <NavigationProperty Name="Phones" Relationship="TraderTiger.AccountPhone" FromRole="Account" ToRole="Phone" />
+          <Property Name="AccountStatusId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AccountStatu" Relationship="TraderTiger.AccountStatusAccount" FromRole="Account" ToRole="AccountStatus" />
+          <NavigationProperty Name="SocialMedias" Relationship="TraderTiger.AccountSocialMedia" FromRole="Account" ToRole="SocialMedia" />
         </EntityType>
         <EntityType Name="EmailAccount">
           <Key>
@@ -594,6 +629,163 @@
             </Principal>
             <Dependent Role="EmailAccount">
               <PropertyRef Name="TypeEmailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BillingAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.AccountBillingAddress" FromRole="BillingAddress" ToRole="Account" />
+        </EntityType>
+        <Association Name="AccountBillingAddress">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.BillingAddress" Role="BillingAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingAddress">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PhoneType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Phones" Relationship="TraderTiger.PhoneTypePhone" FromRole="PhoneType" ToRole="Phone" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AlterPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhoneType" Relationship="TraderTiger.PhoneTypePhone" FromRole="Phone" ToRole="PhoneType" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.AccountPhone" FromRole="Phone" ToRole="Account" />
+        </EntityType>
+        <Association Name="PhoneTypePhone">
+          <End Type="TraderTiger.PhoneType" Role="PhoneType" Multiplicity="1" />
+          <End Type="TraderTiger.Phone" Role="Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhoneType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="PhoneTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AccountPhone">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.Phone" Role="Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AccountStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="TraderTiger.AccountStatusAccount" FromRole="AccountStatus" ToRole="Account" />
+        </EntityType>
+        <Association Name="AccountStatusAccount">
+          <End Type="TraderTiger.AccountStatus" Role="AccountStatus" Multiplicity="1" />
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="AccountStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SocialMedia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="SocialTypeId" Type="Int32" Nullable="false" />
+          <Property Name="SocialMediaAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Alter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SocialType" Relationship="TraderTiger.SocialTypeSocialMedia" FromRole="SocialMedia" ToRole="SocialType" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.AccountSocialMedia" FromRole="SocialMedia" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="SocialType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SocialMedias" Relationship="TraderTiger.SocialTypeSocialMedia" FromRole="SocialType" ToRole="SocialMedia" />
+        </EntityType>
+        <Association Name="SocialTypeSocialMedia">
+          <End Type="TraderTiger.SocialType" Role="SocialType" Multiplicity="1" />
+          <End Type="TraderTiger.SocialMedia" Role="SocialMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMedia">
+              <PropertyRef Name="SocialTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AccountSocialMedia">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.SocialMedia" Role="SocialMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMedia">
+              <PropertyRef Name="AccountId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
