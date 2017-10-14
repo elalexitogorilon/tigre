@@ -29,17 +29,18 @@ namespace DALTiger
         public virtual DbSet<AccountCredential> AccountCredentials { get; set; }
         public virtual DbSet<AccountPayment> AccountPayments { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<AccountStatu> AccountStatus { get; set; }
+        public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
         public virtual DbSet<EmailAccount> EmailAccounts { get; set; }
         public virtual DbSet<EmailType> EmailTypes { get; set; }
+        public virtual DbSet<Following> Followings { get; set; }
         public virtual DbSet<PaymentType> PaymentTypes { get; set; }
         public virtual DbSet<Person> People { get; set; }
-        public virtual DbSet<TraderBuy> TraderBuys { get; set; }
-        public virtual DbSet<TraderSell> TraderSells { get; set; }
-        public virtual DbSet<BillingAddress> BillingAddresses { get; set; }
-        public virtual DbSet<PhoneType> PhoneTypes { get; set; }
         public virtual DbSet<Phone> Phones { get; set; }
-        public virtual DbSet<AccountStatus> AccountStatus { get; set; }
+        public virtual DbSet<PhoneType> PhoneTypes { get; set; }
         public virtual DbSet<SocialMedia> SocialMedias { get; set; }
         public virtual DbSet<SocialType> SocialTypes { get; set; }
+        public virtual DbSet<TraderBuy> TraderBuys { get; set; }
+        public virtual DbSet<TraderSell> TraderSells { get; set; }
     }
 }

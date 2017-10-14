@@ -20,21 +20,22 @@ namespace DALTiger
             this.AccountAddresses = new HashSet<AccountAddress>();
             this.AccountCredentials = new HashSet<AccountCredential>();
             this.AccountPayments = new HashSet<AccountPayment>();
-            this.EmailAccounts = new HashSet<EmailAccount>();
-            this.TraderBuys = new HashSet<TraderBuy>();
-            this.TraderSells = new HashSet<TraderSell>();
             this.BillingAddresses = new HashSet<BillingAddress>();
+            this.EmailAccounts = new HashSet<EmailAccount>();
+            this.Followings = new HashSet<Following>();
             this.Phones = new HashSet<Phone>();
             this.SocialMedias = new HashSet<SocialMedia>();
+            this.TraderBuys = new HashSet<TraderBuy>();
+            this.TraderSells = new HashSet<TraderSell>();
         }
     
         public int Id { get; set; }
         public int PersonId { get; set; }
+        public int AccountStatusId { get; set; }
         public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }
         public string ChangedBy { get; set; }
-        public int AccountStatusId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccountAddress> AccountAddresses { get; set; }
@@ -43,18 +44,20 @@ namespace DALTiger
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccountPayment> AccountPayments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BillingAddress> BillingAddresses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmailAccount> EmailAccounts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Following> Followings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Phone> Phones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SocialMedia> SocialMedias { get; set; }
+        public virtual AccountStatu AccountStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TraderBuy> TraderBuys { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TraderSell> TraderSells { get; set; }
         public virtual Person Person { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BillingAddress> BillingAddresses { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phone> Phones { get; set; }
-        public virtual AccountStatus AccountStatu { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SocialMedia> SocialMedias { get; set; }
     }
 }

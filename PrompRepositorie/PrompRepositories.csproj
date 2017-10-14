@@ -53,6 +53,7 @@
     <Compile Include="Services\EntityService\AccountAddress.cs" />
     <Compile Include="Services\EntityService\AccountCredentials.cs" />
     <Compile Include="Services\EntityService\AccountPaymet.cs" />
+    <Compile Include="Services\EntityService\AccountStatus.cs" />
     <Compile Include="Services\EntityService\EmailAccount.cs" />
     <Compile Include="Services\EntityService\EmailType.cs" />
     <Compile Include="Services\EntityService\Generic.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Services\Interfaces\IAccountAddress.cs" />
     <Compile Include="Services\Interfaces\IAccountCredentials.cs" />
     <Compile Include="Services\Interfaces\IAccountPaymet.cs" />
+    <Compile Include="Services\Interfaces\IAccountStatus.cs" />
     <Compile Include="Services\Interfaces\IEmailAccount.cs" />
     <Compile Include="Services\Interfaces\IEmailType.cs" />
     <Compile Include="Services\Interfaces\Igeneric.cs" />

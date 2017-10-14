@@ -18,6 +18,7 @@ namespace DALTiger
         public int Accountid { get; set; }
         public string Symbol { get; set; }
         public int Units { get; set; }
+        public decimal Total { get; set; }
         public decimal Prices { get; set; }
         public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }

@@ -41,7 +41,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountId" Type="int" Nullable="false" />
           <Property Name="PaymentTypeID" Type="int" Nullable="false" />
-          <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
@@ -53,10 +53,38 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="AccountStatusId" Type="int" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AccountStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BillingAddresses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="ZipCode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmailAccounts">
           <Key>
@@ -78,6 +106,19 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Followings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="FollowingAccountID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
@@ -106,6 +147,56 @@
           <Property Name="Changed" Type="datetime" />
           <Property Name="ChangedBy" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Phones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="PhoneTypeId" Type="int" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AlterPhone" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PhoneTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SocialMedias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="SocialTypeId" Type="int" Nullable="false" />
+          <Property Name="SocialMediaAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Alter" Type="nvarchar(max)" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SocialTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="Changed" Type="datetime" />
+          <Property Name="ChangedBy" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="TraderBuys">
           <Key>
             <PropertyRef Name="Id" />
@@ -114,7 +205,8 @@
           <Property Name="Accountid" Type="int" Nullable="false" />
           <Property Name="Symbol" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Units" Type="int" Nullable="false" />
-          <Property Name="Prices" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="Prices" Type="money" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
@@ -128,7 +220,8 @@
           <Property Name="Accountid" Type="int" Nullable="false" />
           <Property Name="Symbol" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Units" Type="int" Nullable="false" />
-          <Property Name="Prices" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Prices" Type="money" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
@@ -170,6 +263,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AccountBillingAddress">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="BillingAddresses" Type="Self.BillingAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingAddresses">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AccountEmailAccount">
           <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
           <End Role="EmailAccounts" Type="Self.EmailAccounts" Multiplicity="*" />
@@ -179,6 +284,54 @@
             </Principal>
             <Dependent Role="EmailAccounts">
               <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountFollowing">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Followings" Type="Self.Followings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Followings">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountPhone">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Phones" Type="Self.Phones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phones">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountSocialMedia">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="SocialMedias" Type="Self.SocialMedias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMedias">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountStatusAccount">
+          <End Role="AccountStatus" Type="Self.AccountStatus" Multiplicity="1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accounts">
+              <PropertyRef Name="AccountStatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -242,15 +395,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PhoneTypePhone">
+          <End Role="PhoneTypes" Type="Self.PhoneTypes" Multiplicity="1" />
+          <End Role="Phones" Type="Self.Phones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhoneTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phones">
+              <PropertyRef Name="PhoneTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocialTypeSocialMedia">
+          <End Role="SocialTypes" Type="Self.SocialTypes" Multiplicity="1" />
+          <End Role="SocialMedias" Type="Self.SocialMedias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SocialTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMedias">
+              <PropertyRef Name="SocialTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="TraderTigerStoreContainer">
           <EntitySet Name="AccountAddresses" EntityType="Self.AccountAddresses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountCredentials" EntityType="Self.AccountCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountPayments" EntityType="Self.AccountPayments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountStatus" EntityType="Self.AccountStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillingAddresses" EntityType="Self.BillingAddresses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmailAccounts" EntityType="Self.EmailAccounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmailTypes" EntityType="Self.EmailTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Followings" EntityType="Self.Followings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentTypes" EntityType="Self.PaymentTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phones" EntityType="Self.Phones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhoneTypes" EntityType="Self.PhoneTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialMedias" EntityType="Self.SocialMedias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocialTypes" EntityType="Self.SocialTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TraderBuys" EntityType="Self.TraderBuys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TraderSells" EntityType="Self.TraderSells" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AccountAccountAddress" Association="Self.FK_AccountAccountAddress">
@@ -265,9 +449,29 @@
             <End Role="Accounts" EntitySet="Accounts" />
             <End Role="AccountPayments" EntitySet="AccountPayments" />
           </AssociationSet>
+          <AssociationSet Name="FK_AccountBillingAddress" Association="Self.FK_AccountBillingAddress">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="BillingAddresses" EntitySet="BillingAddresses" />
+          </AssociationSet>
           <AssociationSet Name="FK_AccountEmailAccount" Association="Self.FK_AccountEmailAccount">
             <End Role="Accounts" EntitySet="Accounts" />
             <End Role="EmailAccounts" EntitySet="EmailAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountFollowing" Association="Self.FK_AccountFollowing">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Followings" EntitySet="Followings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountPhone" Association="Self.FK_AccountPhone">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Phones" EntitySet="Phones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountSocialMedia" Association="Self.FK_AccountSocialMedia">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="SocialMedias" EntitySet="SocialMedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountStatusAccount" Association="Self.FK_AccountStatusAccount">
+            <End Role="AccountStatus" EntitySet="AccountStatus" />
+            <End Role="Accounts" EntitySet="Accounts" />
           </AssociationSet>
           <AssociationSet Name="FK_AccountTraderBuy" Association="Self.FK_AccountTraderBuy">
             <End Role="Accounts" EntitySet="Accounts" />
@@ -289,6 +493,14 @@
             <End Role="People" EntitySet="People" />
             <End Role="Accounts" EntitySet="Accounts" />
           </AssociationSet>
+          <AssociationSet Name="FK_PhoneTypePhone" Association="Self.FK_PhoneTypePhone">
+            <End Role="PhoneTypes" EntitySet="PhoneTypes" />
+            <End Role="Phones" EntitySet="Phones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocialTypeSocialMedia" Association="Self.FK_SocialTypeSocialMedia">
+            <End Role="SocialTypes" EntitySet="SocialTypes" />
+            <End Role="SocialMedias" EntitySet="SocialMedias" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -299,10 +511,17 @@
           <EntitySet Name="AccountCredentials" EntityType="TraderTiger.AccountCredential" />
           <EntitySet Name="AccountPayments" EntityType="TraderTiger.AccountPayment" />
           <EntitySet Name="Accounts" EntityType="TraderTiger.Account" />
+          <EntitySet Name="AccountStatus" EntityType="TraderTiger.AccountStatu" />
+          <EntitySet Name="BillingAddresses" EntityType="TraderTiger.BillingAddress" />
           <EntitySet Name="EmailAccounts" EntityType="TraderTiger.EmailAccount" />
           <EntitySet Name="EmailTypes" EntityType="TraderTiger.EmailType" />
+          <EntitySet Name="Followings" EntityType="TraderTiger.Following" />
           <EntitySet Name="PaymentTypes" EntityType="TraderTiger.PaymentType" />
           <EntitySet Name="People" EntityType="TraderTiger.Person" />
+          <EntitySet Name="Phones" EntityType="TraderTiger.Phone" />
+          <EntitySet Name="PhoneTypes" EntityType="TraderTiger.PhoneType" />
+          <EntitySet Name="SocialMedias" EntityType="TraderTiger.SocialMedia" />
+          <EntitySet Name="SocialTypes" EntityType="TraderTiger.SocialType" />
           <EntitySet Name="TraderBuys" EntityType="TraderTiger.TraderBuy" />
           <EntitySet Name="TraderSells" EntityType="TraderTiger.TraderSell" />
           <AssociationSet Name="FK_AccountAccountAddress" Association="TraderTiger.FK_AccountAccountAddress">
@@ -321,9 +540,29 @@
             <End Role="PaymentType" EntitySet="PaymentTypes" />
             <End Role="AccountPayment" EntitySet="AccountPayments" />
           </AssociationSet>
+          <AssociationSet Name="FK_AccountBillingAddress" Association="TraderTiger.FK_AccountBillingAddress">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="BillingAddress" EntitySet="BillingAddresses" />
+          </AssociationSet>
           <AssociationSet Name="FK_AccountEmailAccount" Association="TraderTiger.FK_AccountEmailAccount">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="EmailAccount" EntitySet="EmailAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountFollowing" Association="TraderTiger.FK_AccountFollowing">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Following" EntitySet="Followings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountPhone" Association="TraderTiger.FK_AccountPhone">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountSocialMedia" Association="TraderTiger.FK_AccountSocialMedia">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="SocialMedia" EntitySet="SocialMedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccountStatusAccount" Association="TraderTiger.FK_AccountStatusAccount">
+            <End Role="AccountStatu" EntitySet="AccountStatus" />
+            <End Role="Account" EntitySet="Accounts" />
           </AssociationSet>
           <AssociationSet Name="FK_AccountTraderBuy" Association="TraderTiger.FK_AccountTraderBuy">
             <End Role="Account" EntitySet="Accounts" />
@@ -341,34 +580,12 @@
             <End Role="EmailType" EntitySet="EmailTypes" />
             <End Role="EmailAccount" EntitySet="EmailAccounts" />
           </AssociationSet>
-          <EntitySet Name="BillingAddresses" EntityType="TraderTiger.BillingAddress" />
-          <AssociationSet Name="AccountBillingAddress" Association="TraderTiger.AccountBillingAddress">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="BillingAddress" EntitySet="BillingAddresses" />
-          </AssociationSet>
-          <EntitySet Name="PhoneTypes" EntityType="TraderTiger.PhoneType" />
-          <EntitySet Name="Phones" EntityType="TraderTiger.Phone" />
-          <AssociationSet Name="PhoneTypePhone" Association="TraderTiger.PhoneTypePhone">
+          <AssociationSet Name="FK_PhoneTypePhone" Association="TraderTiger.FK_PhoneTypePhone">
             <End Role="PhoneType" EntitySet="PhoneTypes" />
             <End Role="Phone" EntitySet="Phones" />
           </AssociationSet>
-          <AssociationSet Name="AccountPhone" Association="TraderTiger.AccountPhone">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Phone" EntitySet="Phones" />
-          </AssociationSet>
-          <EntitySet Name="AccountStatus" EntityType="TraderTiger.AccountStatus" />
-          <AssociationSet Name="AccountStatusAccount" Association="TraderTiger.AccountStatusAccount">
-            <End Role="AccountStatus" EntitySet="AccountStatus" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
-          <EntitySet Name="SocialMedias" EntityType="TraderTiger.SocialMedia" />
-          <EntitySet Name="SocialTypes" EntityType="TraderTiger.SocialType" />
-          <AssociationSet Name="SocialTypeSocialMedia" Association="TraderTiger.SocialTypeSocialMedia">
+          <AssociationSet Name="FK_SocialTypeSocialMedia" Association="TraderTiger.FK_SocialTypeSocialMedia">
             <End Role="SocialType" EntitySet="SocialTypes" />
-            <End Role="SocialMedia" EntitySet="SocialMedias" />
-          </AssociationSet>
-          <AssociationSet Name="AccountSocialMedia" Association="TraderTiger.AccountSocialMedia">
-            <End Role="Account" EntitySet="Accounts" />
             <End Role="SocialMedia" EntitySet="SocialMedias" />
           </AssociationSet>
         </EntityContainer>
@@ -410,7 +627,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccountId" Type="Int32" Nullable="false" />
           <Property Name="PaymentTypeID" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
@@ -424,6 +641,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="AccountStatusId" Type="Int32" Nullable="false" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
@@ -431,15 +649,44 @@
           <NavigationProperty Name="AccountAddresses" Relationship="TraderTiger.FK_AccountAccountAddress" FromRole="Account" ToRole="AccountAddress" />
           <NavigationProperty Name="AccountCredentials" Relationship="TraderTiger.FK_AccountAccountCredentials" FromRole="Account" ToRole="AccountCredential" />
           <NavigationProperty Name="AccountPayments" Relationship="TraderTiger.FK_AccountAccountPayments" FromRole="Account" ToRole="AccountPayment" />
+          <NavigationProperty Name="BillingAddresses" Relationship="TraderTiger.FK_AccountBillingAddress" FromRole="Account" ToRole="BillingAddress" />
           <NavigationProperty Name="EmailAccounts" Relationship="TraderTiger.FK_AccountEmailAccount" FromRole="Account" ToRole="EmailAccount" />
+          <NavigationProperty Name="Followings" Relationship="TraderTiger.FK_AccountFollowing" FromRole="Account" ToRole="Following" />
+          <NavigationProperty Name="Phones" Relationship="TraderTiger.FK_AccountPhone" FromRole="Account" ToRole="Phone" />
+          <NavigationProperty Name="SocialMedias" Relationship="TraderTiger.FK_AccountSocialMedia" FromRole="Account" ToRole="SocialMedia" />
+          <NavigationProperty Name="AccountStatu" Relationship="TraderTiger.FK_AccountStatusAccount" FromRole="Account" ToRole="AccountStatu" />
           <NavigationProperty Name="TraderBuys" Relationship="TraderTiger.FK_AccountTraderBuy" FromRole="Account" ToRole="TraderBuy" />
           <NavigationProperty Name="TraderSells" Relationship="TraderTiger.FK_AccountTraderSell" FromRole="Account" ToRole="TraderSell" />
           <NavigationProperty Name="Person" Relationship="TraderTiger.FK_PersonAccount" FromRole="Account" ToRole="Person" />
-          <NavigationProperty Name="BillingAddresses" Relationship="TraderTiger.AccountBillingAddress" FromRole="Account" ToRole="BillingAddress" />
-          <NavigationProperty Name="Phones" Relationship="TraderTiger.AccountPhone" FromRole="Account" ToRole="Phone" />
-          <Property Name="AccountStatusId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AccountStatu" Relationship="TraderTiger.AccountStatusAccount" FromRole="Account" ToRole="AccountStatus" />
-          <NavigationProperty Name="SocialMedias" Relationship="TraderTiger.AccountSocialMedia" FromRole="Account" ToRole="SocialMedia" />
+        </EntityType>
+        <EntityType Name="AccountStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="TraderTiger.FK_AccountStatusAccount" FromRole="AccountStatu" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="BillingAddress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountBillingAddress" FromRole="BillingAddress" ToRole="Account" />
         </EntityType>
         <EntityType Name="EmailAccount">
           <Key>
@@ -469,6 +716,20 @@
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="EmailAccounts" Relationship="TraderTiger.FK_EmailTypeEmailAccount" FromRole="EmailType" ToRole="EmailAccount" />
         </EntityType>
+        <EntityType Name="Following">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="FollowingAccountID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountFollowing" FromRole="Following" ToRole="Account" />
+        </EntityType>
         <EntityType Name="PaymentType">
           <Key>
             <PropertyRef Name="Id" />
@@ -494,6 +755,62 @@
           <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Accounts" Relationship="TraderTiger.FK_PersonAccount" FromRole="Person" ToRole="Account" />
         </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AlterPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountPhone" FromRole="Phone" ToRole="Account" />
+          <NavigationProperty Name="PhoneType" Relationship="TraderTiger.FK_PhoneTypePhone" FromRole="Phone" ToRole="PhoneType" />
+        </EntityType>
+        <EntityType Name="PhoneType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Phones" Relationship="TraderTiger.FK_PhoneTypePhone" FromRole="PhoneType" ToRole="Phone" />
+        </EntityType>
+        <EntityType Name="SocialMedia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="SocialTypeId" Type="Int32" Nullable="false" />
+          <Property Name="SocialMediaAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Alter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="TraderTiger.FK_AccountSocialMedia" FromRole="SocialMedia" ToRole="Account" />
+          <NavigationProperty Name="SocialType" Relationship="TraderTiger.FK_SocialTypeSocialMedia" FromRole="SocialMedia" ToRole="SocialType" />
+        </EntityType>
+        <EntityType Name="SocialType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Changed" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SocialMedias" Relationship="TraderTiger.FK_SocialTypeSocialMedia" FromRole="SocialType" ToRole="SocialMedia" />
+        </EntityType>
         <EntityType Name="TraderBuy">
           <Key>
             <PropertyRef Name="Id" />
@@ -502,7 +819,8 @@
           <Property Name="Accountid" Type="Int32" Nullable="false" />
           <Property Name="Symbol" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Units" Type="Int32" Nullable="false" />
-          <Property Name="Prices" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Prices" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
@@ -517,7 +835,8 @@
           <Property Name="Accountid" Type="Int32" Nullable="false" />
           <Property Name="Symbol" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Units" Type="Int32" Nullable="false" />
-          <Property Name="Prices" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Prices" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
@@ -572,6 +891,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AccountBillingAddress">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.BillingAddress" Role="BillingAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillingAddress">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_AccountEmailAccount">
           <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
           <End Type="TraderTiger.EmailAccount" Role="EmailAccount" Multiplicity="*" />
@@ -581,6 +912,54 @@
             </Principal>
             <Dependent Role="EmailAccount">
               <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountFollowing">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.Following" Role="Following" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Following">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountPhone">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.Phone" Role="Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountSocialMedia">
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
+          <End Type="TraderTiger.SocialMedia" Role="SocialMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SocialMedia">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccountStatusAccount">
+          <End Type="TraderTiger.AccountStatu" Role="AccountStatu" Multiplicity="1" />
+          <End Type="TraderTiger.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccountStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="AccountStatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -632,64 +1011,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="BillingAddress">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AccountId" Type="Int32" Nullable="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Precision="3" />
-          <Property Name="CreatedByID" Type="Int32" />
-          <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="Int32" />
-          <NavigationProperty Name="Account" Relationship="TraderTiger.AccountBillingAddress" FromRole="BillingAddress" ToRole="Account" />
-        </EntityType>
-        <Association Name="AccountBillingAddress">
-          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
-          <End Type="TraderTiger.BillingAddress" Role="BillingAddress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="BillingAddress">
-              <PropertyRef Name="AccountId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="PhoneType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Phones" Relationship="TraderTiger.PhoneTypePhone" FromRole="PhoneType" ToRole="Phone" />
-        </EntityType>
-        <EntityType Name="Phone">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AccountId" Type="Int32" Nullable="false" />
-          <Property Name="PhoneTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Telephone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="AlterPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PhoneType" Relationship="TraderTiger.PhoneTypePhone" FromRole="Phone" ToRole="PhoneType" />
-          <NavigationProperty Name="Account" Relationship="TraderTiger.AccountPhone" FromRole="Phone" ToRole="Account" />
-        </EntityType>
-        <Association Name="PhoneTypePhone">
+        <Association Name="FK_PhoneTypePhone">
           <End Type="TraderTiger.PhoneType" Role="PhoneType" Multiplicity="1" />
           <End Type="TraderTiger.Phone" Role="Phone" Multiplicity="*" />
           <ReferentialConstraint>
@@ -701,71 +1023,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="AccountPhone">
-          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
-          <End Type="TraderTiger.Phone" Role="Phone" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Phone">
-              <PropertyRef Name="AccountId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="AccountStatus">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Accounts" Relationship="TraderTiger.AccountStatusAccount" FromRole="AccountStatus" ToRole="Account" />
-        </EntityType>
-        <Association Name="AccountStatusAccount">
-          <End Type="TraderTiger.AccountStatus" Role="AccountStatus" Multiplicity="1" />
-          <End Type="TraderTiger.Account" Role="Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AccountStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="AccountStatusId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SocialMedia">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AccountId" Type="Int32" Nullable="false" />
-          <Property Name="SocialTypeId" Type="Int32" Nullable="false" />
-          <Property Name="SocialMediaAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Alter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SocialType" Relationship="TraderTiger.SocialTypeSocialMedia" FromRole="SocialMedia" ToRole="SocialType" />
-          <NavigationProperty Name="Account" Relationship="TraderTiger.AccountSocialMedia" FromRole="SocialMedia" ToRole="Account" />
-        </EntityType>
-        <EntityType Name="SocialType">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Changed" Type="DateTime" Precision="3" />
-          <Property Name="ChangedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SocialMedias" Relationship="TraderTiger.SocialTypeSocialMedia" FromRole="SocialType" ToRole="SocialMedia" />
-        </EntityType>
-        <Association Name="SocialTypeSocialMedia">
+        <Association Name="FK_SocialTypeSocialMedia">
           <End Type="TraderTiger.SocialType" Role="SocialType" Multiplicity="1" />
           <End Type="TraderTiger.SocialMedia" Role="SocialMedia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -774,18 +1032,6 @@
             </Principal>
             <Dependent Role="SocialMedia">
               <PropertyRef Name="SocialTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AccountSocialMedia">
-          <End Type="TraderTiger.Account" Role="Account" Multiplicity="1" />
-          <End Type="TraderTiger.SocialMedia" Role="SocialMedia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="SocialMedia">
-              <PropertyRef Name="AccountId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -847,7 +1093,37 @@
                 <ScalarProperty Name="Changed" ColumnName="Changed" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="AccountStatusId" ColumnName="AccountStatusId" />
                 <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountStatus">
+            <EntityTypeMapping TypeName="TraderTiger.AccountStatu">
+              <MappingFragment StoreEntitySet="AccountStatus">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillingAddresses">
+            <EntityTypeMapping TypeName="TraderTiger.BillingAddress">
+              <MappingFragment StoreEntitySet="BillingAddresses">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -879,6 +1155,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Followings">
+            <EntityTypeMapping TypeName="TraderTiger.Following">
+              <MappingFragment StoreEntitySet="Followings">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FollowingAccountID" ColumnName="FollowingAccountID" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PaymentTypes">
             <EntityTypeMapping TypeName="TraderTiger.PaymentType">
               <MappingFragment StoreEntitySet="PaymentTypes">
@@ -904,6 +1194,60 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Phones">
+            <EntityTypeMapping TypeName="TraderTiger.Phone">
+              <MappingFragment StoreEntitySet="Phones">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="AlterPhone" ColumnName="AlterPhone" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="PhoneTypeId" ColumnName="PhoneTypeId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhoneTypes">
+            <EntityTypeMapping TypeName="TraderTiger.PhoneType">
+              <MappingFragment StoreEntitySet="PhoneTypes">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialMedias">
+            <EntityTypeMapping TypeName="TraderTiger.SocialMedia">
+              <MappingFragment StoreEntitySet="SocialMedias">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Alter" ColumnName="Alter" />
+                <ScalarProperty Name="SocialMediaAddress" ColumnName="SocialMediaAddress" />
+                <ScalarProperty Name="SocialTypeId" ColumnName="SocialTypeId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialTypes">
+            <EntityTypeMapping TypeName="TraderTiger.SocialType">
+              <MappingFragment StoreEntitySet="SocialTypes">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TraderBuys">
             <EntityTypeMapping TypeName="TraderTiger.TraderBuy">
               <MappingFragment StoreEntitySet="TraderBuys">
@@ -912,6 +1256,7 @@
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Prices" ColumnName="Prices" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="Units" ColumnName="Units" />
                 <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="Accountid" ColumnName="Accountid" />
@@ -926,6 +1271,7 @@
                 <ScalarProperty Name="Changed" ColumnName="Changed" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="Prices" ColumnName="Prices" />
                 <ScalarProperty Name="Units" ColumnName="Units" />
                 <ScalarProperty Name="Symbol" ColumnName="Symbol" />

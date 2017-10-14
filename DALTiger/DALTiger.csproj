@@ -63,7 +63,7 @@
     <Compile Include="AccountPayment.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
-    <Compile Include="AccountStatus.cs">
+    <Compile Include="AccountStatu.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
     <Compile Include="BillingAddress.cs">
@@ -73,6 +73,9 @@
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
     <Compile Include="EmailType.cs">
+      <DependentUpon>TraderTiger.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Following.cs">
       <DependentUpon>TraderTiger.tt</DependentUpon>
     </Compile>
     <Compile Include="PaymentType.cs">

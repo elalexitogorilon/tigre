@@ -11,6 +11,8 @@ namespace PrompRepositories.Services.Interfaces
     {
         IQueryable<AccountCredential> GetAccountCredential();
         AccountCredential GetAccountCredential(int id);
+
+        AccountCredential GetAccountCredentialByUserId(string id);
         void InsertAccountCredential(AccountCredential entity);
         void UpdateAccountCredential(AccountCredential entity);
         void DeleteAccountCredential(AccountCredential entity);

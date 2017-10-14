@@ -32,6 +32,11 @@ namespace PrompRepositories.Services.EntityService
             return accountCredentialrepo.Find(x => x.Id == id);
         }
 
+        public AccountCredential GetAccountCredentialByUserId(string id)
+        {
+            return accountCredentialrepo.Find(x => x.UserID.Contains (id));
+        }
+
         public void InsertAccountCredential(AccountCredential entity)
         {
             accountCredentialrepo.Create(entity);

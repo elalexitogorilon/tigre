@@ -24,7 +24,7 @@ namespace DALTiger
         public Nullable<System.DateTime> Changed { get; set; }
         public string ChangedBy { get; set; }
     
-        public virtual SocialType SocialType { get; set; }
         public virtual Account Account { get; set; }
+        public virtual SocialType SocialType { get; set; }
     }
 }
