@@ -186,29 +186,39 @@ namespace UnitTestAPI
         //}
 
 
+        //[TestMethod]
+        //public void sellingtrdes()
+        //{
+        //    var Sellstuff = new SellController();
+        //    var response = Sellstuff.Sell(1, "INTC", 10, 32);
+
+        //    //response = Sellstuff.Sell(1, "AAPL", 3000, 159);
+
+        //    //response = Sellstuff.Sell(1, " AAL ", 500, 159);
+
+
+        //    //response = Sellstuff.Sell(2, "INTC", 5, 32);
+
+        //    //response = Sellstuff.Sell(2, "AAPL", 300, 159);
+
+        //    //response = Sellstuff.Sell(2, " AAL ", 50, 52);
+
+
+        //    //response = Sellstuff.Sell(3, "INTC", 50, 32);
+
+        //    //response = Sellstuff.Sell(3, "AAPL", 30, 159);
+
+        //    //response = Sellstuff.Sell(3, " AAL ", 23, 52);
+
+        //}
+
+
+
         [TestMethod]
-        public void sellingtrdes()
+        public void Following()
         {
-            var Sellstuff = new SellController();
-            var response = Sellstuff.Sell(1, "INTC", 10, 32);
-
-            //response = Sellstuff.Sell(1, "AAPL", 3000, 159);
-
-            //response = Sellstuff.Sell(1, " AAL ", 500, 159);
-
-
-            //response = Sellstuff.Sell(2, "INTC", 5, 32);
-
-            //response = Sellstuff.Sell(2, "AAPL", 300, 159);
-
-            //response = Sellstuff.Sell(2, " AAL ", 50, 52);
-
-
-            //response = Sellstuff.Sell(3, "INTC", 50, 32);
-
-            //response = Sellstuff.Sell(3, "AAPL", 30, 159);
-
-            //response = Sellstuff.Sell(3, " AAL ", 23, 52);
+            var Sellstuff = new FollowController();
+            var response = Sellstuff.Following( 4,  3); // account 1 follows account3
 
         }
 

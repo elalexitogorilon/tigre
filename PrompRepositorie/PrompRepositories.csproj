@@ -56,6 +56,7 @@
     <Compile Include="Services\EntityService\AccountStatus.cs" />
     <Compile Include="Services\EntityService\EmailAccount.cs" />
     <Compile Include="Services\EntityService\EmailType.cs" />
+    <Compile Include="Services\EntityService\Follow.cs" />
     <Compile Include="Services\EntityService\Generic.cs" />
     <Compile Include="Services\EntityService\TraderBuys.cs" />
     <Compile Include="Services\EntityService\TraderSells.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Services\Interfaces\IAccountStatus.cs" />
     <Compile Include="Services\Interfaces\IEmailAccount.cs" />
     <Compile Include="Services\Interfaces\IEmailType.cs" />
+    <Compile Include="Services\Interfaces\IFollow.cs" />
     <Compile Include="Services\Interfaces\Igeneric.cs" />
     <Compile Include="Services\Interfaces\IPerson.cs" />
     <Compile Include="Services\Interfaces\IPaymentTypes.cs" />

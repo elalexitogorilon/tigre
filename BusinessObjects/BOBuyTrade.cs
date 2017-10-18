@@ -34,7 +34,8 @@ namespace BusinessObjects
             catch (Exception error)
             {
 
-                return new BOResults { Error = error.Source, Message = error.Source, Result = false };
+                return new BOResults { Error = error.InnerException.ToString(), Message = error.Message, Result = false };
+
             }
 
         }

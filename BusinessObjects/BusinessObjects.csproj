@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BOBuyTrade.cs" />
+    <Compile Include="BOFollowing.cs" />
     <Compile Include="BOResults.cs" />
     <Compile Include="BOSellTrade.cs" />
     <Compile Include="BOUserAccount.cs" />

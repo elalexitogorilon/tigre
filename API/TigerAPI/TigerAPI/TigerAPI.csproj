@@ -236,6 +236,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BuyController.cs" />
     <Compile Include="Controllers\EmailTypesController.cs" />
+    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonAccountController.cs" />
     <Compile Include="Controllers\PersonController.cs" />

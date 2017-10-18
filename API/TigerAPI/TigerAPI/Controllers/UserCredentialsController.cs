@@ -12,31 +12,36 @@ using BusinessObjects;
 
 namespace TigerAPI.Controllers
 {
-    [Authorize]
+    
     [RoutePrefix("api/UserCredentials")]
     public class UserCredentialsController : ApiController
     {
+        #region MyRegion
         // GET: api/UserCredentials
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
-        // GET: api/UserCredentials/5
-        [Route("GetUserById")]
-        public AccountCredential Get(int id)
-        {
-            IAccountCredentials credential = new AccountCredentials();
-            return credential.GetAccountCredential(id);
-        }
+        //// GET: api/UserCredentials/5
+        //[HttpGet]
+        //public string Get(string UserName)
+        //{
+        //    var values = " teh user name is " + UserName;
+        //    return values;
+        //}
 
-        // POST: api/UserCredentials
-        public void Post(string user)
-        {
-            
-        }
 
-        public HttpResponseMessage PostData (string UserName, string UserEmail, string UserPassword)
+        //[HttpGet]
+        //public string Getsname()
+        //{
+        //    var values = " teh user name is Myname  " ;
+        //    return values;
+        //} 
+        #endregion
+
+        [HttpPut]
+        public HttpResponseMessage PostData(string UserName, string UserEmail, string UserPassword)
         {
             var configuration = new HttpConfiguration();
             HttpRequestMessage request = new HttpRequestMessage();
@@ -47,10 +52,6 @@ namespace TigerAPI.Controllers
         }
 
 
-        // DELETE: api/UserCredentials/5
-        public void Delete(int id)
-        {
 
-        }
     }
 }

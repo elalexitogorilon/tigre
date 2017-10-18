@@ -17,7 +17,6 @@ namespace DALTiger
         public int Id { get; set; }
         public int AccountId { get; set; }
         public int FollowingAccountID { get; set; }
-        public string Password { get; set; }
         public System.DateTime Created { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> Changed { get; set; }

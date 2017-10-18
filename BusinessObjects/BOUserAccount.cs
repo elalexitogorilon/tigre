@@ -24,7 +24,7 @@ namespace BusinessObjects
                 var st = status.GetAccountStatus(1);
                 var newpersonacount = new DALTiger.Account
                 {
-                    Person = new DALTiger.Person { Name = UserName, LastName = "NA", Created = DateTime.Now },
+                    Person = new DALTiger.Person { Name = UserName, LastName = "NA", Created = DateTime.Now, CreatedBy = "sa" },
                     AccountStatu = st,
                     Created = DateTime.Now
                 };
@@ -39,7 +39,8 @@ namespace BusinessObjects
                     AccountId = newpersonacount.Id,
                     UserID = UserName,
                     Password = UserPassword,
-                    Created = DateTime.Now
+                    Created = DateTime.Now,
+                    CreatedBy = "sa"
                 };
 
                 var accountcred = new AccountCredentials();
@@ -50,7 +51,8 @@ namespace BusinessObjects
                     AccountId = newpersonacount.Id,
                     Email = UserEmail,
                     EmailType = new PrompRepositories.Services.EntityService.EmailTypes().GetEmailTypes(3),//personal
-                    Created = DateTime.Now
+                    Created = DateTime.Now,
+                    CreatedBy = "sa"
                 };
 
                 var newemail = new EmailAccounts();
@@ -60,7 +62,8 @@ namespace BusinessObjects
             catch (Exception error)
             {
 
-                return new BOResults { Error = error.Source, Message = error.Source, Result = false };
+                return new BOResults { Error = error.InnerException.ToString(), Message = error.Message, Result = false };
+
             }
         }
 

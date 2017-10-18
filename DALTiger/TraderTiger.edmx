@@ -118,7 +118,6 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountId" Type="int" Nullable="false" />
           <Property Name="FollowingAccountID" Type="int" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="Changed" Type="datetime" />
@@ -723,7 +722,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccountId" Type="Int32" Nullable="false" />
           <Property Name="FollowingAccountID" Type="Int32" Nullable="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Changed" Type="DateTime" Precision="3" />
@@ -1162,7 +1160,6 @@
                 <ScalarProperty Name="Changed" ColumnName="Changed" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="FollowingAccountID" ColumnName="FollowingAccountID" />
                 <ScalarProperty Name="AccountId" ColumnName="AccountId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

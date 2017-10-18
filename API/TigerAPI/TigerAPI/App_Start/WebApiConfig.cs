@@ -25,6 +25,18 @@ namespace TigerAPI
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "FollowApi",
+                routeTemplate: "api/{controller}/{accountid}/{followaccountid}",
+                defaults: new { id = RouteParameter.Optional, followaccountid= RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+               name: "UserCredentialsApi",
+               routeTemplate: "api/{controller}/{UserName}/{UserEmail}/{UserPassword}",
+               defaults: new { UserName = RouteParameter.Optional, UserEmail = RouteParameter.Optional , UserPassword = RouteParameter.Optional }
+           );
         }
     }
 }

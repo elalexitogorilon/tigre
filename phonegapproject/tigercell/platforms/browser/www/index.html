@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
     Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
 
@@ -38,49 +38,60 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
     <title>Hello World</title>
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand BlackboldText" href="/">Tigre Trader</a> 
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/Home/About">About</a></li>
-                    <li><a href="/Home/Contact">Contact</a></li>
-                </ul>
+
+    <div id="menu">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand BlackboldText" href="/">Tigre Trader</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/Portafolio">Portafolio</a></li>
+                        <li><a href="/Podium">Podium</a></li>
+                        <li><a href="/Sell">Sell</a></li>
+                        <li><a href="/Followers">Followers</a></li>
+                        <li><a href="/Following">Following</a></li>
+                        <li><a href="/UserAccount">Account</a></li>
+                        <li><a href="/Buy">Buy</a></li>
+                        <li><a href="/Buy">Buy</a></li>
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        
+            <br />
+            <br />
+            <h4> Tigre Trader</h4>
+            Auto_Haus1 +112% Followers 14 Following 21
+            <br/>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
-<h2> Tigre Trader</h2>
-Auto_Haus1 +112% Followers 14 Following 21
-<br/>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-
-<input type="button" value="Portafolio" class="btn btn-primary btn-sm" />
-<input type="button" value="Podium" class="btn btn-primary btn-sm" />
-<input type="button" value="Trade" class="btn btn-primary btn-sm" />
-<input type="button" value="Followers" class="btn btn-primary btn-sm" />
-<input type="button" value="Following" class="btn btn-primary btn-sm" />
+            <input type="button" value="Portafolio" class="btn btn-primary btn-sm" />
+            <input type="button" value="Podium" class="btn btn-primary btn-sm" />
+            <input type="button" value="Trade" class="btn btn-primary btn-sm" />
+            <input type="button" value="Followers" class="btn btn-primary btn-sm" />
+            <input type="button" value="Following" class="btn btn-primary btn-sm" />
         <hr />
         <footer>
             <p>&copy; 2017 -TigreTrader </p>
@@ -88,6 +99,7 @@ Auto_Haus1 +112% Followers 14 Following 21
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>
