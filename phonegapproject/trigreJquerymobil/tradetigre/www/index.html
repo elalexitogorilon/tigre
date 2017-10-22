@@ -30,89 +30,127 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+    
 </head> 
-
-
-
-
-
 <body>
-   
-        <!--<div data-role="page" id="index">
-            <header data-role="header">
-                <h3>
-                   Tigre Trader
-                </h3>
-            </header>
-
-            <div data-role="content">
-                <h3>Trader smart</h3>
-                <p>Login</p>
-                <p><a href="#createruser" data-role="button" data-theme="c">Create User Account</a></p>
-                <p><a href="#about" data-role="button" data-theme="c">About us</a></p>
-            </div>
-
-            <footer data-role="footer">
-                <div data-role="navbar">
-                    <ul>
-                        <li><a href="#index" data-direction="reverse">App Homescreen!</a></li>
-                        <li><a href="http://www.google.com/" data-rel="external">Google Me</a></li>
-                        <li><a href="http://www.hongkiat.com/" data-rel="external">Hongkiat Blog</a></li>
-                    </ul>
-                </div>
-            </footer>
-        </div>-->
         <div data-role="page" id="index">
             <div class="container body-content">
+                <header data-role="header">
+                    <h2> Tigre Trader</h2>
+                </header>
 
-
-                <h2> Tigre Trader</h2>
-                Auto_Haus1 +112% Followers 14 Following 21
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <p><a href="#createruser" data-role="button" data-theme="c">Create User Account</a></p>
-                <p><a href="#podium" data-role="button" data-theme="c">Portafolio</a></p>
+                <div data-role="content"></div>
+           
+                
+                <!--<p><a href="#podium" data-role="button" data-theme="c">Portafolio</a></p>
                 <p><a href="#createruser" data-role="button" data-theme="c">Podium</a></p>
                 <p><a href="#createruser" data-role="button" data-theme="c">Trade</a></p>
                 <p><a href="#createruser" data-role="button" data-theme="c">Followers</a></p>
-                <p><a href="#createruser" data-role="button" data-theme="c">Following</a></p>
+                <p><a href="#createruser" data-role="button" data-theme="c">Following</a></p>-->
+                <footer data-role="footer">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#createruser" data-direction="reverse">Create Account</a></li>
+                            <li><a href="#LoginPage" data-rel="external">Login</a></li>
+                             
+                        </ul>
+                    </div>
+                </footer>
+
                 <hr />
                 <footer>
                     <p>&copy; 2017 -TigreTrader </p>
                 </footer>
             </div>
         </div>
-        <div data-role="page" id="createruser">
+        <div data-role="page" id="Welcome">
+        <div class="container body-content">
             <header data-role="header">
-                <h1>Create User Account</h1>
+                <h2> Tigre Trader</h2>
             </header>
-
             <div data-role="content">
-                <h4>Create User Account </h4>
-                Name:<input type="text" value="" id="UserName" class="form-control" />
-                Email:<input type="text" value="" id="UserEmail" class="form-control" />
-                Password:<input type="text" value="" id="UserPassword" class="form-control" />
-                Re Enter Password:<input type="text" value="" id="repassword" class="form-control" />
-                <br>
-                <input type="button" value="SUBMIT" id="subaccount" class="btn btn-primary btn-sm" />
-
-                
-            </div>
+            </div>          
             <footer data-role="footer">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#index" data-direction="reverse">Home</a></li>
-                        <li><a href="#infotrader" data-rel="external">About</a></li>
-                        <li><a href="#podium" data-rel="external">Podium</a></li>
+                        <li><a href="#podium" data-direction="reverse">Podium</a></li>
+                        <li><a href="#infotrader" data-rel="external">Info Trader</a></li>
+                        <li><a href="#podium" data-direction="reverse">Podium</a></li>
+                        <li><a href="#Trade" data-rel="external">Trade</a></li>
+                        <li><a href="#Portafolio" data-rel="external">Portafolio</a></li>
+                        <li><a href="#Following" data-rel="external">Following</a></li>
+                        <li><a href="#Followers" data-rel="external">Followers</a></li>
+                        <li><a href="#logout" data-rel="external">Log out</a></li>
+
                     </ul>
                 </div>
             </footer>
+
+            <hr />
+            <footer>
+                <p>&copy; 2017 -TigreTrader </p>
+            </footer>
+        </div>
+    </div>
+        <div data-role="page" id="createruser">
+            <div class="container body-content">
+                <header data-role="header">
+                    <h1>Create User Account</h1>
+                </header>
+                <div data-role="content">                    
+                    Name:<input type="text" value="" id="UserName" class="form-control" />
+                    Email:<input type="text" value="" id="UserEmail" class="form-control" />
+                    Password:<input type="text" value="" id="UserPassword" class="form-control" />
+                    Re Enter Password:<input type="text" value="" id="repassword" class="form-control" />
+                    <br>
+                    <input type="button" value="SUBMIT" id="subaccount" class="btn btn-primary btn-sm" />
+
+
+                </div>
+                <footer data-role="footer">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#index" data-direction="reverse">Home</a></li>
+                           
+                            <li><a href="#LoginPage" data-rel="external">Login Page</a></li>
+                        </ul>
+                    </div>
+                </footer>
+                <hr />
+                <footer>
+                    <p>&copy; 2017 -TigreTrader </p>
+                </footer>
+              </div>
+        </div>
+        <div data-role="page" id="LoginPage">
+            <div class="container body-content">
+                <header data-role="header">
+                    <h2>Login</h2>
+                </header>
+                <div data-role="content">
+                    Name:<input type="text" value="" id="UserName" class="form-control" />
+                    
+                    Password:<input type="text" value="" id="UserPassword" class="form-control" />
+                       <br>
+                    <input type="button" value="SUBMIT" id="sublogin" class="btn btn-primary btn-sm" />
+
+
+                </div>
+                <footer data-role="footer">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#index" data-direction="reverse">Home</a></li>
+
+                            <li><a href="#LoginPage" data-rel="external">Login Page</a></li>
+                        </ul>
+                    </div>
+                </footer>
+                <hr />
+                <footer>
+                    <p>&copy; 2017 -TigreTrader </p>
+                </footer>
+           
+        </div>
         </div>
         <div data-role="page" id="podium">
         <header data-role="header">
@@ -146,16 +184,52 @@
             <footer data-role="footer">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#index" data-direction="reverse">Home</a></li>
-                        <li><a href="#createruser" data-rel="external">Create User Account</a></li>
-                        <li><a href="#podium" data-rel="external">Podium</a></li>
+                        <li><a href="#podium" data-direction="reverse">Podium</a></li>
+                        <li><a href="#infotrader" data-rel="external">Info Trader</a></li>
+                        <li><a href="#podium" data-direction="reverse">Podium</a></li>
+                        <li><a href="#Trade" data-rel="external">Trade</a></li>
+                        <li><a href="#Portafolio" data-rel="external">Portafolio</a></li>
+                        <li><a href="#Following" data-rel="external">Following</a></li>
+                        <li><a href="#Followers" data-rel="external">Followers</a></li>
+                        <li><a href="#logout" data-rel="external">Log out</a></li>
+
                     </ul>
                 </div>
             </footer>
-        </div>     
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+        </div>  
+        <div data-role="page" id="exception">
+            <div class="container body-content">
+                <header data-role="header">
+                    <h1>Exception</h1>
+                </header>
+
+                <div data-role="content">
+                    <div id="errormessag">
+                        An error has occurred please try again.
+                    </div>
+                </div>
+                <hr />
+                <footer>
+                    <p>&copy; 2017 -TigreTrader </p>
+                </footer>
+                <footer data-role="footer">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#createruser" data-direction="reverse">Create Account</a></li>
+                            <li><a href="#LoginPage" data-rel="external">Login</a></li>
+
+                        </ul>
+                    </div>
+                </footer>   
+             </div>
+          </div>  
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/Custom/Validation.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
 </body>
 
 </html>

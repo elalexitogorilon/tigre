@@ -16,6 +16,7 @@ namespace TigerAPI.Controllers
     [RoutePrefix("api/UserCredentials")]
     public class UserCredentialsController : ApiController
     {
+        //http://localhost/TigerAPI/api/UserCredentials/Dataok/cuevitas@gmail.com/passwordtest in local host , remove the IIS mvd and set the correct Login for ther database 
         #region MyRegion
         // GET: api/UserCredentials
         //public IEnumerable<string> Get()
@@ -40,8 +41,20 @@ namespace TigerAPI.Controllers
         //} 
         #endregion
 
-        [HttpPut]
+        [HttpPost]
         public HttpResponseMessage PostData(string UserName, string UserEmail, string UserPassword)
+        {
+            var configuration = new HttpConfiguration();
+            HttpRequestMessage request = new HttpRequestMessage();
+            var createdaccount = new BOUserAccount().UserAccount(UserName, UserEmail, UserPassword);
+            return request.CreateResponse(HttpStatusCode.OK
+                                        , "Post request"
+                                        , configuration);
+        }
+
+
+        [HttpGet]
+        public HttpResponseMessage GetData(string UserName, string UserEmail, string UserPassword)
         {
             var configuration = new HttpConfiguration();
             HttpRequestMessage request = new HttpRequestMessage();
@@ -50,6 +63,16 @@ namespace TigerAPI.Controllers
                                         , createdaccount
                                         , configuration);
         }
+        //[HttpPut]
+        //public HttpResponseMessage PostData(string UserName, string UserEmail, string UserPassword)
+        //{
+        //    var configuration = new HttpConfiguration();
+        //    HttpRequestMessage request = new HttpRequestMessage();
+        //    var createdaccount = new BOUserAccount().UserAccount(UserName, UserEmail, UserPassword);
+        //    return request.CreateResponse(HttpStatusCode.OK
+        //                                , createdaccount
+        //                                , configuration);
+        //}
 
 
 

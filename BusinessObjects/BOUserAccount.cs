@@ -61,8 +61,17 @@ namespace BusinessObjects
             }
             catch (Exception error)
             {
+               
 
-                return new BOResults { Error = error.InnerException.ToString(), Message = error.Message, Result = false };
+                if (error.InnerException == null)
+                {
+                    return new BOResults { Error = error.Message, Message = error.Message, Result = false };
+                }
+                else
+                {
+                    return new BOResults { Error = error.InnerException.ToString(), Message = error.Message, Result = false };
+
+                }
 
             }
         }
